@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
+import {noAuhApi} from "../../apis/instance/Instance";
 
 
 
@@ -53,6 +54,7 @@ function Login(props) {
     const [number,setNumber] =useState("");
     const [pass,setPass] =useState("");
     const [numberError,setnumberError] =useState("");
+    const [message,setMessage] =useState("");
 
     const typeNumber = (e) =>{
         if(e.target.value.length<11) {
@@ -64,17 +66,67 @@ function Login(props) {
         setNumber(e.target.value)
     }
     const typePass = (e) =>{
-        console.log(e.target.value)
-
         setPass(e.target.value)
     }
     const navigate = useNavigate();
     const passEnter = (e) =>{
         if (e.key == "Enter") {
-            navigate('/main');
+            const loginUser = {
+                "username": number,
+                "password": pass
+            }
+            try {
+                noAuhApi.post(
+                    '/user/authentication', loginUser
+                ).then(res => {
+                    if (res.status === 200) {
+                        localStorage.setItem("accessToken", res.data.accessToken)
+                        let loginUser = {
+                            "username" : res.data.username,
+                            "nickname" : res.data.nickname,
+                            "joinData" : res.data.joinData,
+                            "proifle" : res.data.proifle
+                        }
+                        localStorage.setItem("loginUser", loginUser)
+                        navigate("/main");
+                    }else if (res.status === 401) {
+                        alert('no match');
+                    }
+                })
+            }catch (error){
+
+                setMessage("아이디와 비밀번호를 확인하세요");
+            }
         }
     }
     const goMain =() =>{
+        const loginUser = {
+            "username": number,
+            "password": pass
+        }
+        try {
+            noAuhApi.post(
+                '/user/authentication', loginUser
+            ).then(res => {
+                if (res.status === 200) {
+                    localStorage.setItem("accessToken", res.data.accessToken)
+                    let loginUser = {
+                        "username" : res.data.username,
+                        "nickname" : res.data.nickname,
+                        "joinData" : res.data.joinData,
+                        "proifle" : res.data.proifle
+                    }
+                    localStorage.setItem("loginUser", loginUser)
+                    navigate("/main");
+                }else if (res.status === 401) {
+                    alert('no match');
+                }
+            })
+        }catch (error){
+
+            setMessage("아이디와 비밀번호를 확인하세요");
+        }
+
         navigate('/main');
     }
 
@@ -99,7 +151,7 @@ function Login(props) {
             <LoginSubmit
               onClick={goMain}
             >확인</LoginSubmit>
-
+            <span className="numberError">     {message}</span>
         </div>
     );
 }
