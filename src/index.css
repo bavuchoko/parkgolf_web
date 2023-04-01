@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html body{
+    margin: 0;
+    padding: 0;
+}
+.login-p{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+.numberError{
+    color: red;
+}
