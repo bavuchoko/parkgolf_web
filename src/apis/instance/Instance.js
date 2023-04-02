@@ -42,7 +42,7 @@ api.interceptors.response.use(
                 const originalRequest = config;
                 // token refresh 요청
                 const { data } = await axios.get(
-                    `http://localhost:3000/auth/reissue`,
+                    `http://localhost:8080/user/reissue`,
                 );
                 // 새로운 토큰 저장
                 // dispatch(userSlice.actions.setAccessToken(data.data.accessToken)); store에 저장
@@ -57,6 +57,7 @@ api.interceptors.response.use(
         }
         // Any status codes that falls outside the range of 2xx cause this function to trigger
         // Do something with response error
+        console.log("response error", error);
         return Promise.reject(error);
     }
 );

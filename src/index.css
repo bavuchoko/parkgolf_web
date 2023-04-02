@@ -15,3 +15,6 @@ html body{
 .numberError{
     color: red;
 }
+.fieldsList{
+    border: 1px solid black;
+}
