@@ -25,7 +25,17 @@ html body{
     font-size: 23px;
     text-align: center;
 }
-.loginbtn{
+.loginbtn_N{
+    display: block;
+    background-color: #a1a1a1;
+    width: 80%;
+    color: white;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 23px;
+    text-align: center;
+}
+.loginbtn_Y{
     display: block;
     background-color: #282c34;
     width: 80%;
@@ -35,7 +45,6 @@ html body{
     font-size: 23px;
     text-align: center;
 }
-
 .joinbtn{
     display: block;
     background-color: #282c34;
