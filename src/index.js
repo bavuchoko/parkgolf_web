@@ -9,7 +9,7 @@ import Enroll from "./components/competitions/game/Enroll";
 import Open from "./components/competitions/game/Open";
 import FieldMain from "./components/competitions/field/FieldMain";
 import RegisterField from "./components/competitions/field/RegisterField";
-import Login from "./components/login/Login";
+
 import Auth from "./components/auth/Auth";
 
 import {QueryClient, QueryClientProvider} from "react-query";
@@ -31,7 +31,6 @@ root.render(
                     <Route path="/main/field/registration" element={<RegisterField/>}/>
                 </Route>
                 <Route path="score" element={<Scores/>}/>
-                <Route path="login" element={<Login/>}/>
 
             </Routes>
         </BrowserRouter>
