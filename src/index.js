@@ -9,11 +9,11 @@ import Enroll from "./components/competitions/game/Enroll";
 import Open from "./components/competitions/game/Open";
 import FieldMain from "./components/competitions/field/FieldMain";
 import RegisterField from "./components/competitions/field/RegisterField";
-import Index from "./components/Index";
 import Login from "./components/login/Login";
-import Main from "./components/Main";
+import Auth from "./components/auth/Auth";
 
 import {QueryClient, QueryClientProvider} from "react-query";
+import PrivateRoute from "./components/auth/PrivateRoute";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();
@@ -23,8 +23,8 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} >
-                    <Route index element={<Index/>}/>
-                    <Route  path="/main" element={<Main/>}/>
+                    <Route index element={<PrivateRoute element={<App />} />} />
+                    <Route path="/auth" element={<Auth />} />
                     <Route path="/main/enroll" element={<Enroll/>}/>
                     <Route path="/main/open" element={<Open/>}/>
                     <Route path="/main/field" element={<FieldMain/>}/>
@@ -37,8 +37,4 @@ root.render(
         </BrowserRouter>
     </QueryClientProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

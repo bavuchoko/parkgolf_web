@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// const BASE_URL = 'https://pjs.or.kr:8080/api';
+
 const BASE_URL = 'http://localhost:8080/';
 // url 호출 시 기본 값 셋팅
 

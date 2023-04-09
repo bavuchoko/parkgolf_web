@@ -7,14 +7,49 @@ html body{
     margin: 0;
     padding: 0;
 }
-.login-p{
-    padding-top: 20px;
+.authmain{
+    width: 100%;
+    height: 100vh;
+}
+
+.authmain > h2{
     text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 900;
     font-size: 30px;
 }
-.numberError{
-    color: red;
+.loginmessage{
+    padding-top: 100px;
+    color: #cc4242;
+    font-size: 23px;
+    text-align: center;
 }
-.fieldsList{
-    border: 1px solid black;
+.loginbtn{
+    display: block;
+    background-color: #282c34;
+    width: 80%;
+    color: white;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 23px;
+    text-align: center;
+}
+
+.joinbtn{
+    display: block;
+    background-color: #282c34;
+    width: 80%;
+    color: white;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 23px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.contactme{
+    margin-left: 10%;
+    width: 200px;
+    font-size: 12px;
 }
