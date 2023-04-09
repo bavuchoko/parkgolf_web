@@ -14,22 +14,23 @@ import Auth from "./components/auth/Auth";
 
 import {QueryClient, QueryClientProvider} from "react-query";
 import PrivateRoute from "./components/auth/PrivateRoute";
+import Main from "./components/main/Main";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();
+
+
 
 root.render(
     <QueryClientProvider client={queryClient}>
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App />} >
-                    <Route index element={<PrivateRoute element={<App />} />} />
-                    <Route path="/auth" element={<Auth />} />
-                    <Route path="/main/enroll" element={<Enroll/>}/>
-                    <Route path="/main/open" element={<Open/>}/>
-                    <Route path="/main/field" element={<FieldMain/>}/>
-                    <Route path="/main/field/registration" element={<RegisterField/>}/>
-                </Route>
+                <Route path="/" element={<PrivateRoute element={<Main />} />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/main/enroll" element={<Enroll/>}/>
+                <Route path="/main/open" element={<Open/>}/>
+                <Route path="/main/field" element={<FieldMain/>}/>
+                <Route path="/main/field/registration" element={<RegisterField/>}/>
                 <Route path="score" element={<Scores/>}/>
 
             </Routes>

@@ -1,4 +1,6 @@
 import {useMutation, useQueryClient} from 'react-query';
+import {noAuhApi} from "../instance/Instance";
+import {useNavigate} from "react-router-dom";
 
 async function fetchIsLoggedIn() {
     const authToken = localStorage.getItem('accessToken');
@@ -7,24 +9,16 @@ async function fetchIsLoggedIn() {
     }
     return false;
 }
+async function useLogin(loginUser) {
+    const response = await noAuhApi.post('/user/authentication', loginUser);
+    if (response.status === 200) {
+       localStorage.setItem('accessToken',response.data.accessToken);
+    } else {
+        throw new Error('로그인 실패');
+    }
 
-function useLogin(loginUser) {
-    return useMutation(async (loginUser) => {
-        const response = await fetch('/user/authentication', {
-            method: 'POST',
-            body: JSON.stringify(loginUser),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error('로그인 실패');
-        }
-
-        const data = await response.json();
-        return data.token;
-    });
+    console.log(response)
+    console.log(response.data)
 }
 
 function setToken(accessToken) {

@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
+import {useLogin} from "../../apis/auth/AuthService";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -33,6 +35,29 @@ function Auth(props) {
     const typePassword = (e) => {
         setPassword(e.target.value)
     }
+    const passwordEnter = (e) => {
+        if (e.key == "Enter") {
+            if(isPhone && isPass){
+                login();
+            }
+        }
+    }
+
+    const navigate = useNavigate();
+    const login=()=>{
+        const loginUser = {
+            "username": number,
+            "password": password
+        }
+        try {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const data =useLogin(loginUser)
+            navigate("/");
+        }catch (error){
+
+        }
+    }
+
 
     useEffect(() => {
 
@@ -76,9 +101,12 @@ function Auth(props) {
             <InputBox type="password" placeholder="비밀번호"
                       value={password}
                       onChange={typePassword}
+                      onKeyPress={passwordEnter}
             />
             {isPhone && isPass &&
-                <button className="loginbtn">
+                <button className="loginbtn"
+                    onClick={login}
+                >
                     로그인
                 </button>
             }
