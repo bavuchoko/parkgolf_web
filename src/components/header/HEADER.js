@@ -9,15 +9,18 @@ function Header(props) {
     const openHandler = () =>{
         setOpen(!open)
     }
+    const closeMenu = () =>{
+        setOpen(false)
+    }
 
     return (
         <>
             <div className="w-full h-[60px] nav-bar">
-                <div className="iamge-center" >
+                <div className="in_nav_center inline-block" >
                     {open ?
                         <>
                             <button onClick={openHandler}>
-                                <img className="w-6 h-6 " alt="menu" src={close}/>
+                                <img className="w-8 h-8 " alt="menu" src={close}/>
                             </button>
                         </>
                         :
@@ -26,9 +29,9 @@ function Header(props) {
                         </button>
                     }
                 </div>
-
+                <div className="in_nav_center float-right inline-block">박종수 님</div>
                 {open &&
-                    <MainMenu/>
+                    <MainMenu closeMenu={closeMenu}/>
                 }
             </div>
         </>
