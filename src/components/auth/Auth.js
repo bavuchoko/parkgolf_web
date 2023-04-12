@@ -1,11 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {useLogin} from "../../apis/auth/AuthService";
-import {useLocation, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-
-
-
+import {useNavigate} from "react-router-dom";
 
 
 const InputBox = styled.input`
@@ -53,9 +49,12 @@ function Auth() {
         try {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const data = await useLogin(loginUser);
+            console.log(data)
             if (data.success) {
+                alert("a")
                 navigate("/")
             } else {
+                alert("b")
             }
         } catch (error) {
         }

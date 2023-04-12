@@ -1,7 +1,5 @@
-
 import {noAuhApi} from "../instance/Instance";
-import {useNavigate} from "react-router-dom";
-import {store} from "../../store/store";
+
 
 async function fetchIsLoggedIn() {
     const authToken = localStorage.getItem('accessToken');
@@ -40,8 +38,6 @@ function removeToken() {
     localStorage.removeItem('accessToken');
 }
 function isAuthenticated() {
-    const token = store.getState().auth.token;
-    return token !== null && token !== undefined;
 }
 
 export {setToken,getToken, removeToken, fetchIsLoggedIn, useLogin,isAuthenticated };

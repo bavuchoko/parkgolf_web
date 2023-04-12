@@ -10,9 +10,9 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/main" element={isLoggedIn ? <Main /> : <Navigate to="/auth" />} />
+                <Route path="/" element={<Main />} />
                 <Route path="/auth" element={<Auth setIsLoggedIn={setIsLoggedIn} />} />
-                <Route path="/" element={<Navigate to="/main" />} />
+
             </Routes>
         </Router>
     );
