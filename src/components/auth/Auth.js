@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {useLogin} from "../../apis/auth/AuthService";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
+
+
 
 
 const InputBox = styled.input`
@@ -35,7 +39,7 @@ function Auth() {
         setPassword(e.target.value)
     }
     const passwordEnter = (e) => {
-        if (e.key == "Enter") {
+        if (e.key === "Enter") {
             if(isPhone && isPass){
                 handleLogin();
             }
@@ -118,7 +122,8 @@ function Auth() {
             <button className="joinbtn">가입하기</button>
             <p className="contactme">contact : 000-1111-2222</p>
             <p className="contactme">세종파크골프 ASSO</p>
-            <p className="contactme">dev email : bavuchoko@naver.com</p>
+            <Link to="/"><span className="text-[24px] contactmeback inline-block"><FontAwesomeIcon icon={faArrowLeft}  /> 뒤로</span></Link>
+            <span className="contactme mr-5">dev email : bavuchoko@naver.com</span>
         </div>
     );
 }

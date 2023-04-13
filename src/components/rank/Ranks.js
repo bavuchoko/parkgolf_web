@@ -12,12 +12,12 @@ const Gneder = styled.div`
   line-height: 34px;
 `;
 
-function Rank(props) {
+function Ranks(props) {
 
     const [startDate, setStartDate] = useState(new Date());
 
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-        <button className="example-custom-input" onClick={onClick} ref={ref}>
+        <button className="monthPicker" onClick={onClick} ref={ref}>
             {value}
         </button>
     ));
@@ -123,4 +123,4 @@ function Rank(props) {
     );
 }
 
-export default Rank;
+export default Ranks;

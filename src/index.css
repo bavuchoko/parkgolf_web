@@ -102,7 +102,7 @@ ul.dropLi > a >li{
 .trank{
     line-height: 34px;
 }
-.example-custom-input{
+.monthPicker{
     display: block;
     margin: 0 auto;
     margin-top: 40px;
@@ -110,7 +110,17 @@ ul.dropLi > a >li{
     border-radius: 10px;
     padding: 10px 30px;
     letter-spacing: 5px;
-    letter-spacing: 5px;
+    color: white;
+    background-color: #282c34;
+}
+.datePeridoPicker{
+    display: block;
+    font-size: 17px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    letter-spacing: 1px;
     color: white;
     background-color: #282c34;
 }
@@ -130,4 +140,13 @@ ul.dropLi > a >li{
 }
 .trankNum{
     text-indent: 10px;
+}
+.contactmeback{
+    display: inline-block;
+    float: right;
+    margin-right: 10%;
+}
+.periodDivFlex{;
+    padding-top: 40px;
+    display: flex;
 }

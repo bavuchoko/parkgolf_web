@@ -1,6 +1,5 @@
 import React from 'react';
-import {Outlet, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {Outlet} from "react-router-dom";
 import Header from "../header/HEADER";
 
 function Main(props) {
