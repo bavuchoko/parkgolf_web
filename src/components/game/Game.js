@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Game({key, game}) {
+function Game({game}) {
     return (
         <div>
-            <div key={key}>
+            <div key={game.id}>
                 <p>{game.date}</p>
             </div>
 

@@ -4,7 +4,9 @@ import {useLogin} from "../../apis/auth/AuthService";
 import {Link, useNavigate} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
-
+import {login} from "../../redusx/slice/authSlice";
+import {useDispatch} from "react-redux";
+import {loginSuccess} from "../../redusx/store/store";
 
 
 
@@ -21,9 +23,8 @@ const InputBox = styled.input`
   letter-spacing:3px;
   margin-bottom: 40px;
 `;
-function Auth() {
+function Login() {
     const navigate = useNavigate();
-
     const [number,setNumber] =useState("");
     const [password, setPassword]=useState("");
     const [message, setMessage]=useState(" ");
@@ -31,7 +32,7 @@ function Auth() {
     const [isPass, setIsPass]=useState(false);
     const phoneRegEx = /^010[0-9]{8}$/;
 
-    
+
     const typeNumber = (e) =>{
         setNumber(e.target.value)
     }
@@ -45,22 +46,26 @@ function Auth() {
             }
         }
     }
+    const dispatch = useDispatch();
     async function handleLogin() {
-        const loginUser = {
+        const user = {
             "username": number,
             "password": password
         }
         try {
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            const data = await useLogin(loginUser);
-            console.log(data)
-            if (data.success) {
-                alert("a")
-                navigate("/")
+            const loginUser = await useLogin(user);
+            if (loginUser.success) {
+                console.log(loginUser)
+                dispatch(loginSuccess(loginUser));
+                navigate(-1)
             } else {
-                alert("b")
+                alert("로그인 실패");
             }
         } catch (error) {
+            console.error(error);
+            alert("아이디와 비밀번호를 확인하세요");
+            setPassword("");
         }
     }
 
@@ -127,4 +132,4 @@ function Auth() {
         </div>
     );
 }
-export default Auth;
+export default Login;

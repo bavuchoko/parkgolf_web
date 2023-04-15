@@ -11,18 +11,21 @@ async function fetchIsLoggedIn() {
 async function useLogin(loginUser) {
     const response = await noAuhApi.post('/user/authentication', loginUser);
     if (response.status === 200) {
-       localStorage.setItem('accessToken',response.data.accessToken);
         const user ={
             "name":response.data.name,
             "birth":response.data.birth,
             "joinDate":response.data.joinDate,
             "gender":response.data.gender,
-            "success":true
+            "success":true,
+            "accessToken":response.data.accessToken
         }
-        localStorage.setItem('user',user);
+        localStorage.setItem('accessToken',response.data.accessToken);
+        localStorage.setItem('loginUser',user);
+        localStorage.setItem('isLoggedIn',true);
         return user;
     } else {
-        throw new Error('로그인 실패');
+        const error = new Error('로그인 실패');
+        throw error; // 응답 코드가 400인 경우, 예외를 발생시킵니다.
     }
 }
 
