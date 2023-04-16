@@ -4,10 +4,8 @@ import {useLogin} from "../../apis/auth/AuthService";
 import {Link, useNavigate} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
-import {login} from "../../redusx/slice/authSlice";
 import {useDispatch} from "react-redux";
 import {loginSuccess} from "../../redusx/store/store";
-
 
 
 const InputBox = styled.input`
@@ -91,6 +89,9 @@ function Login() {
             setIsPass(true)
         }
     }, [isPhone, number, password]);
+    const goback =()=> {
+        navigate(-1);
+    }
 
 
     return (
@@ -127,7 +128,7 @@ function Login() {
            <Link to="/join"><button className="joinbtn">가입하기</button></Link>
             <p className="contactme">contact : 000-1111-2222</p>
             <p className="contactme">세종파크골프 ASSO</p>
-            <Link to="/"><span className="text-[24px] contactmeback inline-block"><FontAwesomeIcon icon={faArrowLeft}  /> 홈으로</span></Link>
+            <button className="text-[22px] contactmeback inline-block" onClick={goback}><FontAwesomeIcon icon={faArrowLeft}  /> 뒤로가기</button>
             <span className="contactme mr-5">dev email : bavuchoko@naver.com</span>
         </div>
     );

@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Games from "./components/game/Games";
 import {loginSuccess} from "./redusx/store/store";
 import Join from "./components/user/Join";
+import Create from "./components/game/Create";
 
 function App() {
     const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/rank" element={<Ranks />} />
                     {/*<Route path="/games" element={<Games />} />*/}
                     <Route path="/games" element={<Games /> } />
+                    <Route path="/games/create" element={<Create /> } />
                 </Route>
                 <Route path="/login" element={isLoggedIn ? <Navigate to='/' /> : <Login />} />
                 <Route path="/join" element={isLoggedIn ? <Navigate to='/' /> : <Join />} />

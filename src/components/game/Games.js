@@ -4,8 +4,10 @@ import {ko} from "date-fns/esm/locale";
 import Game from "./Game";
 import golf from "../../assets/icons/golf.png"
 import circles3 from "../../assets/icons/Circles-menu-3.gif"
+import left from "../../assets/icons/left-arrow.png"
 import waiting from "../../assets/icons/waiting.gif"
 import Play from "./Play";
+import {Link} from "react-router-dom";
 
 function Games(props) {
     const oneWeekAgo = new Date();
@@ -72,6 +74,9 @@ function Games(props) {
 
     return (
         <div className="px-5">
+            <Link to="/games/create" className="open-game">
+                <img className="w-8 h-8 inline-block mr-3 "  src={left}/>경기등록
+            </Link>
             <div className="periodDivFlex justify-center">
                 <DatePicker
                     selected={startDate}

@@ -156,7 +156,7 @@ ul.dropLi > a >li{
     padding-top: 30px;
 }
 .periodDivFlex{;
-    padding-top: 80px;
+    padding-top: 50px;
     display: flex;
     margin-bottom: 50px;
 }
@@ -179,13 +179,13 @@ ul.dropLi > a >li{
     margin-bottom: 50px;
 }
 .gameDiv{
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     width: 100%;
     padding: 20px;
     margin: 0 auto;
     /*background-color: #2B3467;*/
     color: #333232;
-    border: 1px solid #2B3467;
+    border-bottom: 1px solid #2B3467;
     margin-bottom: 20px;
 
 }
@@ -227,4 +227,30 @@ ul.dropLi > a >li{
 }
 .game-title-div{
     border-bottom: 1px dotted #5d5e5e;
+}
+.open-game{
+    display: inline-block;
+    font-weight: 900;
+    line-height: 24px;
+    margin-top: 30px;
+    font-size: 19px;
+}
+.m0auto{
+    margin: 0 auto;
+}
+.saveBtn{
+    border-radius: 10px;
+    padding: 5px 40px;
+    margin-right: 5%;
+    margin-bottom: 50px;
+    background-color: #282c34;
+    color: white;
+    height: 60px;
+    font-size: 17px;
+    text-align: center;
+}
+.gotoback{
+    display: inline-block;
+    float: right;
+    font-size: 20px;
 }
