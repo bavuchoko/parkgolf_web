@@ -2,6 +2,9 @@ import React, {forwardRef, useEffect, useState} from 'react';
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
 import Game from "./Game";
+import golf from "../../assets/icons/golf.png"
+import waiting from "../../assets/icons/waiting.png"
+import Play from "./Play";
 
 function Games(props) {
     const oneWeekAgo = new Date();
@@ -17,7 +20,7 @@ function Games(props) {
         {
             "id":1,
             "date" : "2023-04-13",
-            "address" : "세종시 장군면 정계길",
+            "address" : "세종시 장군면 정계길 세종시 장군면 정계길",
             "playerCount" : 42,
             "hole":18,
             "day":"목",
@@ -76,7 +79,6 @@ function Games(props) {
                     locale={ko}
                     withPortal
                     portalId="root-portal"
-                    showMonthYearPicker
                     customInput={<ExampleCustomInput1 />}
                 />~
                 <DatePicker
@@ -86,17 +88,26 @@ function Games(props) {
                     locale={ko}
                     withPortal
                     portalId="root-portal"
-                    showMonthYearPicker
                     customInput={<ExampleCustomInput2 />}
                 />
             </div>
 
+
+            <span className="text-[18px] indent-2 mb-3 inline-block">현재 진행중...</span>
+            <img className="w-9 h-9 inline-block ml-5 mb-5" src={golf}/>
+
             <div className="gameListDiv">
                     {dummyGames.map( game => (
-                        <Game key={game.id} game={game} />
+                        <Play key={game.id} game={game} />
                     ))}
             </div>
-
+            <span className="text-[18px] indent-2 mb-3 inline-block">참가 신청중</span>
+            <img className="w-9 h-9 inline-block ml-5 mb-5" src={waiting}/>
+            <div className="gameListDiv">
+                {dummyGames.map( game => (
+                    <Game key={game.id} game={game} />
+                ))}
+            </div>
 
         </div>
     );

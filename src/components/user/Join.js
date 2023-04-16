@@ -181,6 +181,7 @@ function Join() {
                 :
             <button className="joinbtn join_N" onClick={notAllowed}>제출</button>
             }
+            <Link to="/"><span className="text-[24px] contactmeback inline-block"><FontAwesomeIcon icon={faArrowLeft}  /> 홈으로</span></Link>
         </div>
     );
 }

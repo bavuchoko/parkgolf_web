@@ -17,11 +17,12 @@ function MainMenu({closeMenu,open}) {
     return (
         <div className={`slideMenu ${open ? 'show' : ''}`}>
             <ul className="dropLi">
-               <Link to="/" onClick={closeMenu}><li>홈</li></Link>
+               <Link to="/" onClick={closeMenu}><li>홈으로</li></Link>
                <Link to="/rank" onClick={closeMenu}><li>월간랭킹</li></Link>
-               <Link to="/" onClick={closeMenu}><li>기록</li></Link>
                <Link to="/games" onClick={closeMenu}><li>일정보기</li></Link>
-
+                {isLoggedIn &&
+                    <Link to="/history" onClick={closeMenu}><li>개인기록</li></Link>
+                }
                <Link to="/" ><li>문의하기</li></Link>
 
                 {isLoggedIn ?

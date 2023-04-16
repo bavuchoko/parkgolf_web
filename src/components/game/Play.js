@@ -26,8 +26,7 @@ function Game({game}) {
                     <span className="mt-2 mb-2 text-[18px] weight-900 inline-block game-title ">{game.address}</span>
                 </div>
                 <p className="text-[17px] ">{game.detail}</p>
-                <button className="w-4/12 enroll-btn mt-2 inline-block mr-3" >참가</button>
-                <button className="w-4/12 game-detail mt-2 inline-block " >상세정보</button>
+                <button className="w-4/12 game-playing mt-2 inline-block " >경기보기</button>
             </div>
 
         </div>

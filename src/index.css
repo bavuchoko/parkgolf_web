@@ -114,22 +114,21 @@ ul.dropLi > a >li{
     margin: 0 auto;
     margin-top: 40px;
     margin-bottom: 40px;
-    border-radius: 10px;
     padding: 10px 30px;
     letter-spacing: 5px;
-    color: white;
-    background-color: #282c34;
+    color: #333232;
+    border-bottom: 1px solid #5e5e5e;
 }
 .datePeridoPicker{
     display: block;
     font-size: 17px;
     margin-right: 10px;
     margin-left: 10px;
-    border-radius: 10px;
     padding: 5px 10px;
     letter-spacing: 1px;
-    color: white;
-    background-color: #282c34;
+    color: #333232;
+    border-bottom: 1px solid #5e5e5e;
+    /*background-color: #282c34;*/
 }
 .react-datepicker__portal > div{ width: 80%}
 .react-datepicker{width: 100% }
@@ -171,19 +170,22 @@ ul.dropLi > a >li{
     border-radius: 60px;
     left: calc(5%);
     font-size: 16px;
-    background: #252525;
+    background: #0D090A;
     box-shadow: 1px 1px 1px #c07474, 2px 2px 1px #8a8ac7;
     letter-spacing: 6px;
     color: white;
 }
+.gameListDiv{
+    margin-bottom: 50px;
+}
 .gameDiv{
     border-radius: 5px;
     width: 100%;
-    font-size: 22px;
     padding: 20px;
     margin: 0 auto;
-    background-color: #ececec;
-    color: #3d3d3d;
+    /*background-color: #2B3467;*/
+    color: #333232;
+    border: 1px solid #2B3467;
     margin-bottom: 20px;
 
 }
@@ -201,4 +203,28 @@ ul.dropLi > a >li{
 }
 .join_N{
     background-color: #a1a1a1;
+}
+.enroll-btn{
+    border-radius: 30px;
+    padding: 5px;
+    font-size: 15px;
+    background: #1F8A70;
+    color: white;
+}
+.game-detail{
+    border-radius: 30px;
+    padding: 5px;
+    font-size: 15px;
+    background: #00425A;
+    color: white;
+}
+.game-playing{
+    border-radius: 30px;
+    padding: 5px;
+    font-size: 15px;
+    background: #7ac0d9;
+    color: white;
+}
+.game-title-div{
+    border-bottom: 1px dotted #5d5e5e;
 }

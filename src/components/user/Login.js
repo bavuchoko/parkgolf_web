@@ -127,7 +127,7 @@ function Login() {
            <Link to="/join"><button className="joinbtn">가입하기</button></Link>
             <p className="contactme">contact : 000-1111-2222</p>
             <p className="contactme">세종파크골프 ASSO</p>
-            <Link to="/"><span className="text-[24px] contactmeback inline-block"><FontAwesomeIcon icon={faArrowLeft}  /> 뒤로</span></Link>
+            <Link to="/"><span className="text-[24px] contactmeback inline-block"><FontAwesomeIcon icon={faArrowLeft}  /> 홈으로</span></Link>
             <span className="contactme mr-5">dev email : bavuchoko@naver.com</span>
         </div>
     );
