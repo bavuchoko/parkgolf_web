@@ -11,6 +11,7 @@ const api = axios.create({
 // 요청 인터셉터
 // 단순 get요청으로 인증값이 필요없는 경우
 const axiosApi = (options) => {
+    console.log(BASE_URL)
     return axios.create({ baseURL: BASE_URL, ...options })
 }
 
@@ -42,7 +43,7 @@ api.interceptors.response.use(
                 const originalRequest = config;
                 // token refresh 요청
                 const { data } = await axios.get(
-                    `http://localhost:8080/user/reissue`,
+                    BASE_URL+`/user/reissue`,
                 );
                 // 새로운 토큰 저장
                 // dispatch(userSlice.actions.setAccessToken(data.data.accessToken)); store에 저장
