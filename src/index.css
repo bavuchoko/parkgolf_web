@@ -196,3 +196,9 @@ ul.dropLi > a >li{
 .text-shadow {
     text-shadow: 1px 1px 1px #c07474, 2px 2px 1px #8a8ac7;
 }
+.join_Y{
+    background-color: #282c34;
+}
+.join_N{
+    background-color: #a1a1a1;
+}

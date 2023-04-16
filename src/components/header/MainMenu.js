@@ -10,13 +10,15 @@ function MainMenu({closeMenu,open}) {
     function handleLogout() {
         closeMenu()
         // Redux store의 상태를 초기화한다
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("loginUser");
         dispatch(logout());
     }
     return (
         <div className={`slideMenu ${open ? 'show' : ''}`}>
             <ul className="dropLi">
                <Link to="/" onClick={closeMenu}><li>홈</li></Link>
-               <Link to="/rank" onClick={closeMenu}><li>랭킹</li></Link>
+               <Link to="/rank" onClick={closeMenu}><li>월간랭킹</li></Link>
                <Link to="/" onClick={closeMenu}><li>기록</li></Link>
                <Link to="/games" onClick={closeMenu}><li>일정보기</li></Link>
 
