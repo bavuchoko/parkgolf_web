@@ -3,7 +3,8 @@ import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
 import Game from "./Game";
 import golf from "../../assets/icons/golf.png"
-import waiting from "../../assets/icons/waiting.png"
+import circles3 from "../../assets/icons/Circles-menu-3.gif"
+import waiting from "../../assets/icons/waiting.gif"
 import Play from "./Play";
 
 function Games(props) {
@@ -93,7 +94,8 @@ function Games(props) {
             </div>
 
 
-            <span className="text-[18px] indent-2 mb-3 inline-block">현재 진행중...</span>
+            <span className="text-[18px] indent-2 mb-3 inline-block">현재 진행중</span>
+            <img className="w-8 h-8 inline-block ml-2 mb-5" src={circles3}/>
             <img className="w-9 h-9 inline-block ml-5 mb-5" src={golf}/>
 
             <div className="gameListDiv">
@@ -102,7 +104,7 @@ function Games(props) {
                     ))}
             </div>
             <span className="text-[18px] indent-2 mb-3 inline-block">참가 신청중</span>
-            <img className="w-9 h-9 inline-block ml-5 mb-5" src={waiting}/>
+            <img className="w-8 h-8 inline-block ml-5 mb-5" src={waiting}/>
             <div className="gameListDiv">
                 {dummyGames.map( game => (
                     <Game key={game.id} game={game} />
