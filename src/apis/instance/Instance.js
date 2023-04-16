@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://sejong-parkgolf.com:18090/';
-// const BASE_URL = 'http://localhost:8080/';
+// const BASE_URL = 'https://sejong-parkgolf.com:18090/';
+const BASE_URL = 'http://localhost:8080/';
 // url 호출 시 기본 값 셋팅
 
 const api = axios.create({
@@ -11,7 +11,6 @@ const api = axios.create({
 // 요청 인터셉터
 // 단순 get요청으로 인증값이 필요없는 경우
 const axiosApi = (options) => {
-    console.log(BASE_URL)
     return axios.create({ baseURL: BASE_URL, ...options })
 }
 

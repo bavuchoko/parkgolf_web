@@ -82,7 +82,7 @@ html body{
     top: 60px;
     position: fixed;
     right: -100%;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 .show{
     transform: translateX(-100%);
@@ -153,9 +153,13 @@ ul.dropLi > a >li{
     float: right;
     margin-right: 10%;
 }
+.periodDiv{
+    padding-top: 30px;
+}
 .periodDivFlex{;
-    padding-top: 40px;
+    padding-top: 80px;
     display: flex;
+    margin-bottom: 50px;
 }
 .loginoutBtn{
     display: block;
@@ -168,8 +172,27 @@ ul.dropLi > a >li{
     left: calc(5%);
     font-size: 16px;
     background: #252525;
-
-
-
+    box-shadow: 1px 1px 1px #c07474, 2px 2px 1px #8a8ac7;
+    letter-spacing: 6px;
     color: white;
+}
+.gameDiv{
+    border-radius: 5px;
+    width: 100%;
+    font-size: 22px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #ececec;
+    color: #3d3d3d;
+    margin-bottom: 20px;
+
+}
+.weight-900{
+    font-weight: 900;
+}
+.weight-400{
+    font-weight: 400;
+}
+.text-shadow {
+    text-shadow: 1px 1px 1px #c07474, 2px 2px 1px #8a8ac7;
 }

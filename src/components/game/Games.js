@@ -17,16 +17,20 @@ function Games(props) {
         {
             "id":1,
             "date" : "2023-04-13",
-            "location" : "세종시 장군면 정계길",
+            "address" : "세종시 장군면 정계길",
             "playerCount" : 42,
-            "hole":18
+            "hole":18,
+            "day":"목",
+            "detail":"월례 시니어 대회"
         },
         {
             "id":2,
             "date" : "2023-04-16",
-            "location" : "세종시 부강면 신사리",
+            "address" : "세종시 부강면 신사리",
             "playerCount" : 38,
-            "hole":9
+            "hole":9,
+            "day":"일",
+            "detail":"주간 정기 연습"
         }
     ]
 

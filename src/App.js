@@ -39,9 +39,7 @@ function App() {
                 <Route path="/" element={<Main />} >
                     <Route path="/rank" element={<Ranks />} />
                     {/*<Route path="/games" element={<Games />} />*/}
-                    <Route path="/games" element={
-                        isLoggedIn ? <Games /> : <Navigate to="/login" />
-                    } />
+                    <Route path="/games" element={<Games /> } />
                 </Route>
                 <Route path="/login" element={isLoggedIn ? <Navigate to='/' /> : <Login />} />
             </Routes>
