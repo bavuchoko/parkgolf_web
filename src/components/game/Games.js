@@ -74,9 +74,6 @@ function Games(props) {
 
     return (
         <div className="px-5">
-            <Link to="/games/create" className="open-game">
-                <img className="w-8 h-8 inline-block mr-3 "  src={left}/>경기등록
-            </Link>
             <div className="periodDivFlex justify-center">
                 <DatePicker
                     selected={startDate}
@@ -99,17 +96,7 @@ function Games(props) {
             </div>
 
 
-            <span className="text-[18px] indent-2 mb-3 inline-block">현재 진행중</span>
-            <img className="w-8 h-8 inline-block ml-2 mb-5" src={circles3}/>
-            <img className="w-9 h-9 inline-block ml-5 mb-5" src={golf}/>
 
-            <div className="gameListDiv">
-                    {dummyGames.map( game => (
-                        <Play key={game.id} game={game} />
-                    ))}
-            </div>
-            <span className="text-[18px] indent-2 mb-3 inline-block">참가 신청중</span>
-            <img className="w-8 h-8 inline-block ml-5 mb-5" src={waiting}/>
             <div className="gameListDiv">
                 {dummyGames.map( game => (
                     <Game key={game.id} game={game} />

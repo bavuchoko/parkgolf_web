@@ -16,7 +16,8 @@ function App() {
     const [loggedInUser, setLoggedInUser] = useState(null);
     useEffect(() => {
         // localStorage에서 로그인 정보를 가져옴
-        const user = localStorage.getItem('loginUser');
+        const user =JSON.parse(localStorage.getItem('loginUser'));
+
         const isLoggedIn = localStorage.getItem('isLoggedIn');
 
         // 가져온 정보를 리덕스에 반영

@@ -54,7 +54,6 @@ function Login() {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const loginUser = await useLogin(user);
             if (loginUser.success) {
-                console.log(loginUser)
                 dispatch(loginSuccess(loginUser));
                 navigate(-1)
             } else {

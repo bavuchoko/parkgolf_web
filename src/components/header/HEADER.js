@@ -19,9 +19,7 @@ function Header() {
         <>
             <div className="w-full h-[60px] nav-bar">
                 <span className="in_nav_center inline-block weight-900 text-shadow" >SEJONG</span>
-                {isLoggedIn &&
-                    <div className="in_nav_center float-right inline-block">{user.name} 님</div>
-                }
+
                 <div className="in_nav_center inline-block float-right" >
                     {open ?
                         <>
@@ -37,7 +35,9 @@ function Header() {
                 </div>
 
                 <MainMenu closeMenu={closeMenu} open={open}/>
-
+                {isLoggedIn &&
+                    <div className="in_nav_center float-right inline-block">{user.name} 님</div>
+                }
             </div>
         </>
     );

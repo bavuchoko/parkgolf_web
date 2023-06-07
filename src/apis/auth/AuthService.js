@@ -20,7 +20,7 @@ async function useLogin(loginUser) {
             "accessToken":response.data.accessToken
         }
         localStorage.setItem('accessToken',response.data.accessToken);
-        localStorage.setItem('loginUser',user);
+        localStorage.setItem('loginUser',JSON.stringify(user));
         localStorage.setItem('isLoggedIn',true);
         return user;
     } else {
