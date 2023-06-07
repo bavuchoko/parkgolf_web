@@ -44,6 +44,7 @@ function App() {
                     {/*<Route path="/games" element={<Games />} />*/}
                     <Route path="/games" element={<Games /> } />
                     <Route path="/games/create" element={<Create /> } />
+                    <Route path="/history" element={<Create /> } />
                 </Route>
                 <Route path="/login" element={isLoggedIn ? <Navigate to='/' /> : <Login />} />
                 <Route path="/join" element={isLoggedIn ? <Navigate to='/' /> : <Join />} />
