@@ -27,7 +27,12 @@ function Games(props) {
             "playerCount" : 42,
             "hole":18,
             "day":"목",
-            "detail":"월례 시니어 대회"
+            "detail":"월례 시니어 대회",
+            "player":[
+                {"username":"01028160001", "name":"테스트1" ,"joinDate":"2023-04-13" },
+                {"username":"01028160002", "name":"테스트2", "joinDate":"2023-04-13"},
+                {"username":"01028160003", "name":"테스트3", "joinDate":"2023-04-13"}
+            ]
         },
         {
             "id":2,
@@ -36,7 +41,12 @@ function Games(props) {
             "playerCount" : 38,
             "hole":9,
             "day":"일",
-            "detail":"주간 정기 연습"
+            "detail":"주간 정기 연습",
+            "player":[
+                {"username":"01028160004", "name":"테스트4" ,"joinDate":"2023-04-13" },
+                {"username":"01028160005", "name":"테스트5", "joinDate":"2023-04-13"},
+                {"username":"01028160006", "name":"테스트6", "joinDate":"2023-04-13"}
+            ]
         }
     ]
 
