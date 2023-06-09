@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
 import {useDispatch} from "react-redux";
 import {loginSuccess} from "../../redusx/store/store";
-
+import { useMutation } from 'react-query';
 
 const InputBox = styled.input`
   border-radius: 0;
@@ -53,12 +53,9 @@ function Login() {
         try {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const loginUser = await useLogin(user);
-            if (loginUser.success) {
-                dispatch(loginSuccess(loginUser));
-                navigate(-1)
-            } else {
-                alert("로그인 실패");
-            }
+            dispatch(loginSuccess(loginUser));
+            console.log(loginUser)
+            navigate(-1)
         } catch (error) {
             console.error(error);
             alert("아이디와 비밀번호를 확인하세요");

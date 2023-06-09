@@ -12,7 +12,6 @@ const LOGOUT = 'LOGOUT';
 
 // 액션 생성 함수
 export function loginSuccess(user) {
-    console.log(user)
     return { type: LOGIN_SUCCESS, user };
 }
 

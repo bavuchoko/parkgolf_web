@@ -9,13 +9,13 @@ const api = axios.create({
 });
 
 // 요청 인터셉터
-// 단순 get요청으로 인증값이 필요없는 경우
+// 인증토큰이 필요없는 경우
 const axiosApi = (options) => {
     return axios.create({ baseURL: BASE_URL, ...options })
 }
 
 
-// post, delete등 api요청 시 인증값이 필요한 경우
+// api요청 시 인증값이 필요한 경우
 const axiosAuthApi  = (options) => {
     const token= localStorage.getItem("accessToken");
     return axios.create({

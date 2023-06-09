@@ -2,10 +2,20 @@ import React, {useState} from 'react';
 import menu from '../../assets/icons/menu.png'
 import close from '../../assets/icons/close.png'
 import MainMenu from "./MainMenu";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useQuery} from "react-query";
+import {tokenVaildation} from "../../apis/auth/AuthService";
+import {loginSuccess, logout} from "../../redusx/store/store";
 
 function Header() {
     const { isLoggedIn } = useSelector(state => state);
+    const dispatch = useDispatch();
+    const { isLoading, error, data } = useQuery('menus', tokenVaildation,{
+        onError: (error) => {
+            console.log("cccc")
+            dispatch(logout());
+        },
+    });
     const [open, setOpen]=useState(false);
     const user = useSelector(state => state.user);
     const openHandler = () =>{
