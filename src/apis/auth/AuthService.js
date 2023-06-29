@@ -3,7 +3,7 @@ import {noAuhApi} from "../instance/Instance";
 
 
 async function useLogin(loginUser) {
-    const response = await noAuhApi.post('/user/authentication', loginUser);
+    const response = await noAuhApi.post('/api/user/authentication', loginUser);
     localStorage.removeItem('accessToken');
     if (response.status === 200) {
         const user ={
@@ -24,9 +24,8 @@ async function useLogin(loginUser) {
 }
 
 async function tokenVaildation() {
-    console.log("aaa")
     const token = localStorage.getItem('accessToken');
-    const response = await noAuhApi.post('/user/tokenVaildation', token);
+    const response = await noAuhApi.post('/api/user/tokenVaildation', token);
     if (response.status === 200) {
         console.log("token validated")
     } else {
@@ -41,7 +40,7 @@ async function tokenVaildation() {
 
 
 async function userJoin(loginUser) {
-    const response = await noAuhApi.post('/user/create', loginUser);
+    const response = await noAuhApi.post('/api/user/create', loginUser);
     if (response.status === 200) {
         localStorage.setItem('accessToken',response.data);
     } else {

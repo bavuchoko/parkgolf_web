@@ -1,13 +1,11 @@
-import React, {forwardRef, useEffect, useState} from 'react';
+import React, {forwardRef, useState} from 'react';
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
+import Loading from "../../assets/gif/loading-red-dot.gif";
+import Empty from "../../assets/icons/empty.png";
 import Game from "./Game";
-import golf from "../../assets/icons/golf.png"
-import circles3 from "../../assets/icons/Circles-menu-3.gif"
-import left from "../../assets/icons/left-arrow.png"
-import waiting from "../../assets/icons/waiting.gif"
-import Play from "./Play";
-import {Link} from "react-router-dom";
+import {useQuery} from "react-query";
+import {getGameList} from "../../apis/game/GameService";
 
 function Games(props) {
     const oneWeekAgo = new Date();
@@ -16,40 +14,12 @@ function Games(props) {
     oneWeekAfter.setDate(oneWeekAfter.getDate() + 7);
     const [startDate, setStartDate] = useState(oneWeekAgo);
     const [endDate, setEndDate] = useState(oneWeekAfter);
+    const [message, setMessage] = useState("oneWeekAfter");
 
-    const [games, setGames] = useState([]);
 
-    const dummyGames = [
-        {
-            "id":1,
-            "date" : "2023-04-13",
-            "address" : "세종시 장군면 정계길 세종시 장군면 정계길",
-            "playerCount" : 42,
-            "hole":18,
-            "day":"목",
-            "detail":"월례 시니어 대회",
-            "player":[
-                {"username":"01028160001", "name":"테스트1" ,"joinDate":"2023-04-13" },
-                {"username":"01028160002", "name":"테스트2", "joinDate":"2023-04-13"},
-                {"username":"01028160003", "name":"테스트3", "joinDate":"2023-04-13"}
-            ]
-        },
-        {
-            "id":2,
-            "date" : "2023-04-16",
-            "address" : "세종시 부강면 신사리",
-            "playerCount" : 38,
-            "hole":9,
-            "day":"일",
-            "detail":"주간 정기 연습",
-            "player":[
-                {"username":"01028160004", "name":"테스트4" ,"joinDate":"2023-04-13" },
-                {"username":"01028160005", "name":"테스트5", "joinDate":"2023-04-13"},
-                {"username":"01028160006", "name":"테스트6", "joinDate":"2023-04-13"}
-            ]
-        }
-    ]
-
+    const { isLoading, error, data } = useQuery(['game',startDate,endDate],
+        () => getGameList(startDate,endDate)
+    );
 
     const ExampleCustomInput1 = forwardRef(({ value, onClick }, ref) => (
         <button className="datePeridoPicker" onClick={onClick} ref={ref}>
@@ -61,7 +31,17 @@ function Games(props) {
             {value}
         </button>
     ));
-
+    function getRandomColor() {
+        // const letters = '0123456789ABCDEF';
+        // let color = '#';
+        // for (let i = 0; i < 6; i++) {
+        //     color += letters[Math.floor(Math.random() * 16)];
+        // }
+        // return color;
+        const colors = ['#ffffbb', '#d9ffd8', '#eae0ff', '#d6fffe']; // 원하는 색상을 여기에 추가
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    }
 
     const handleStartDateChange = date => {
         if (endDate && date > endDate) {
@@ -78,9 +58,6 @@ function Games(props) {
         }
         setEndDate(date);
     };
-
-    useEffect(() => {
-    }, [games]);
 
     return (
         <div className="px-5">
@@ -105,13 +82,23 @@ function Games(props) {
                 />
             </div>
 
-
-
-            <div className="gameListDiv">
-                {dummyGames.map( game => (
-                    <Game key={game.id} game={game} />
-                ))}
-            </div>
+            {isLoading ? (
+                <>
+                {/*<div className="modal-back "></div>*/}
+                <img src={Loading} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
+                </>
+            ) : error ? (
+                <div className="gameListDiv list-error">
+                    <img src={Empty} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
+                    <p>조회결과가 없습니다.</p>
+                </div>
+            ) : (
+                <div className="gameListDiv">
+                    {data.map(game => (
+                        <Game key={game.id} game={game} getRandomColor={getRandomColor}/>
+                    ))}
+                </div>
+            )}
 
         </div>
     );

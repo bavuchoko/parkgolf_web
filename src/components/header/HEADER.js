@@ -12,7 +12,6 @@ function Header() {
     const dispatch = useDispatch();
     const { isLoading, error, data } = useQuery('menus', tokenVaildation,{
         onError: (error) => {
-            console.log("cccc")
             dispatch(logout());
         },
     });

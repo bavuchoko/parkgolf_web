@@ -1,14 +1,26 @@
 import {needAuthApi, noAuhApi} from "../instance/Instance";
 
 async function createGame(game) {
-    const response = await needAuthApi.post('/game/create', game);
+    const response = await needAuthApi.post('/api/game/create', game);
     if (response.status === 200) {
         return response.status;
     } else {
-        const error = new Error('로그인 실패');
-        throw error; // 응답 코드가 400인 경우, 예외를 발생시킵니다.
+        const error = new Error('생성 실패');
+        throw error;
     }
 }
 
+async function getGameList(startDate, endDate) {
+    const response = await noAuhApi.get('/api/game',
+        { params: { startDate: startDate, endDate: endDate } }
+    );
+    if (response.status === 200) {
+        console.log(response.data._embedded.gameList)
+        return response.data._embedded.gameList;
+    }else {
+        const error = new Error('조회 실패');
+        throw error;
+    }
 
-export {createGame};
+}
+export {createGame, getGameList};

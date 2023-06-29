@@ -179,15 +179,22 @@ ul.dropLi > a >li{
     margin-bottom: 50px;
 }
 .gameDiv{
-    /*border-radius: 5px;*/
+    border-radius: 10px;
     width: 100%;
-    padding: 20px;
     margin: 0 auto;
+    --tw-shadow: 10px 0px 30px 10px rgb(0 0 0 / 0.25);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     /*background-color: #2B3467;*/
     color: #333232;
-    border-bottom: 1px solid #2B3467;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
+}
+.gameDiv-upper{
+    padding: 10px 25px 0px;
+}
+.gameDiv-lower{
+    padding: 10px 25px 10px;
 }
 .weight-900{
     font-weight: 900;
@@ -205,18 +212,18 @@ ul.dropLi > a >li{
     background-color: #a1a1a1;
 }
 .enroll-btn{
-    border-radius: 30px;
-    padding: 5px;
-    font-size: 15px;
-    background: #1F8A70;
-    color: white;
+    border-radius: 6px;
+    padding: 3px;
+    font-size: 14px;
+    border: 1px solid #262626;
+    color: #262626;
 }
 .game-detail{
-    border-radius: 30px;
-    padding: 5px;
-    font-size: 15px;
-    background: #00425A;
-    color: white;
+    border-radius: 6px;
+    padding: 3px;
+    font-size: 14px;
+    border: 1px solid #262626;
+    color: #262626;
 }
 .game-playing{
     border-radius: 30px;
@@ -225,9 +232,7 @@ ul.dropLi > a >li{
     background: #7ac0d9;
     color: white;
 }
-.game-title-div{
-    border-bottom: 1px dotted #5d5e5e;
-}
+
 .open-game{
     display: inline-block;
     font-weight: 900;
@@ -253,4 +258,63 @@ ul.dropLi > a >li{
     display: inline-block;
     float: right;
     font-size: 20px;
+}
+
+.modal-back{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(208, 208, 208, 0.5);*/
+}
+
+.list-error > p{
+    font-weight: 900;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+.game-info{
+    margin-top: 20px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+.player-count-txt{
+    color: #4b4b4b;
+    text-align: left;
+    width: 70px;
+}
+.player-count{
+    font-size: 25px;
+    font-weight: 900;
+    color: #4b4b4b;
+    text-align: left;
+    width: 100%;
+}
+.slicer-vertical{
+    height: 54px;
+    margin-top: 3px;
+    border-right: 1px solid #b4b4b4;
+    background: linear-gradient(to right, transparent 50%, currentColor 50%);
+}
+.slicer-horizon{
+    position: relative;
+    border-bottom: 1px solid #b4b4b4;
+    background: linear-gradient(to bottom, transparent 50%, currentColor 50%);
+}
+.gameDiv-lower{
+
+}
+.gameDiv-lower-detail{
+    text-align: right;
+    width: 100px;
+    position: relative;
+    left: calc(100% - 100px);
+}
+.game-title{
+    padding: 3px 0px;
+    /*background: linear-gradient(to top, #FFE400 50%, transparent 50%);*/
+    /*background: linear-gradient(to right, #fe88ff 0%, #c2a4ff 100%);*/
 }
