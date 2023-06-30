@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://sejong-parkgolf.com:18090/api/';
+const BASE_URL = 'https://sejong-parkgolf.com:18090/api';
 // const BASE_URL = 'http://localhost:8090/';
 // url 호출 시 기본 값 셋팅
 
