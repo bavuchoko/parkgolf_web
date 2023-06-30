@@ -25,6 +25,7 @@ function reducer(state = initialState, action) {
         case LOGIN_SUCCESS:
             return { ...state, isLoggedIn: true, user: action.user };
         case LOGOUT:
+            localStorage.removeItem("accessToken");
             return { ...state, isLoggedIn: false, user: null };
         default:
             return state;
