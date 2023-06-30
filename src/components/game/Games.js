@@ -6,6 +6,7 @@ import Empty from "../../assets/icons/empty.png";
 import Game from "./Game";
 import {useQuery} from "react-query";
 import {getGameList} from "../../apis/game/GameService";
+import InternalServerError from "../errors/Internal_Server_Error";
 
 function Games(props) {
     const oneWeekAgo = new Date();
@@ -38,7 +39,7 @@ function Games(props) {
         //     color += letters[Math.floor(Math.random() * 16)];
         // }
         // return color;
-        const colors = ['#ffffbb', '#d9ffd8', '#eae0ff', '#d6fffe']; // 원하는 색상을 여기에 추가
+        const colors = ['#eada5c', '#58dbf3', '#ef6aac', '#6def68']; // 원하는 색상을 여기에 추가
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
     }
@@ -88,17 +89,22 @@ function Games(props) {
                 <img src={Loading} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
                 </>
             ) : error ? (
+                <InternalServerError/>
+            ) : data.data._embedded  ? (
+                <div className="gameListDiv">
+                    {data.data._embedded.gameList.map(game => (
+                        <Game key={game.id} game={game} getRandomColor={getRandomColor}/>
+                    ))}
+                </div>
+            ) : (
+
                 <div className="gameListDiv list-error">
                     <img src={Empty} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
                     <p>조회결과가 없습니다.</p>
                 </div>
-            ) : (
-                <div className="gameListDiv">
-                    {data.map(game => (
-                        <Game key={game.id} game={game} getRandomColor={getRandomColor}/>
-                    ))}
-                </div>
-            )}
+            )
+
+            }
 
         </div>
     );

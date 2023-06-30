@@ -1,4 +1,6 @@
 import {noAuhApi} from "../instance/Instance";
+import {useDispatch} from "react-redux";
+import {logout} from "../../redusx/store/store";
 
 
 
@@ -25,16 +27,18 @@ async function useLogin(loginUser) {
 
 async function tokenVaildation() {
     const token = localStorage.getItem('accessToken');
-    const response = await noAuhApi.post('/api/user/tokenVaildation', token);
-    if (response.status === 200) {
-        console.log("token validated")
-    } else {
-        console.log("bbb")
-        console.log(response)
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('loginUser');
-        const error = new Error('토큰 검증 실패');
-        throw error; // 응답 코드가 400인 경우, 예외를 발생시킵니다.
+    if(token) {
+        const response = await noAuhApi.post('/api/user/tokenVaildation', token);
+        if (response.status === 200) {
+            console.log("token validated")
+        } else {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('loginUser');
+            const error = new Error('토큰 검증 실패');
+            throw error; // 응답 코드가 400인 경우, 예외를 발생시킵니다.
+        }
+    }else{
+        return null;
     }
 }
 

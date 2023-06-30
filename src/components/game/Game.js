@@ -20,7 +20,7 @@ const Day = styled.p`
 function Game({game, getRandomColor}) {
     const randomColor = getRandomColor();
     const pStyle = {
-        background: `linear-gradient(to top, ${randomColor} 3%, transparent 60%)`,
+        background: `linear-gradient(to top, ${randomColor} 65%, transparent 65%)`,
     };
     return (
 

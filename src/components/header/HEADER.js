@@ -8,13 +8,22 @@ import {tokenVaildation} from "../../apis/auth/AuthService";
 import {loginSuccess, logout} from "../../redusx/store/store";
 
 function Header() {
+
+    // 토큰이 있는경우 토큰의 유효성을 검증하고 토큰이 유효하지 않으면 로그아웃 시키는 로직
     const { isLoggedIn } = useSelector(state => state);
     const dispatch = useDispatch();
     const { isLoading, error, data } = useQuery('menus', tokenVaildation,{
         onError: (error) => {
+            alert("세션이 종료되어 로그아웃되었습니다.")
             dispatch(logout());
         },
+        onSuccess: (data) => {
+            if (!data) {
+            }else{}
+        },
     });
+    ///////////////////////////////////////////////////////////////////////////
+
     const [open, setOpen]=useState(false);
     const user = useSelector(state => state.user);
     const openHandler = () =>{

@@ -15,8 +15,8 @@ async function getGameList(startDate, endDate) {
         { params: { startDate: startDate, endDate: endDate } }
     );
     if (response.status === 200) {
-        console.log(response.data._embedded.gameList)
-        return response.data._embedded.gameList;
+        console.log(response)
+        return response;
     }else {
         const error = new Error('조회 실패');
         throw error;
