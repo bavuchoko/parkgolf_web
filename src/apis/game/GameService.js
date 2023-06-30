@@ -1,7 +1,7 @@
 import {needAuthApi, noAuhApi} from "../instance/Instance";
 
 async function createGame(game) {
-    const response = await needAuthApi.post('/api/game/create', game);
+    const response = await needAuthApi.post('/game/create', game);
     if (response.status === 200) {
         return response.status;
     } else {
@@ -11,7 +11,7 @@ async function createGame(game) {
 }
 
 async function getGameList(startDate, endDate) {
-    const response = await noAuhApi.get('/api/game',
+    const response = await noAuhApi.get('/game',
         { params: { startDate: startDate, endDate: endDate } }
     );
     if (response.status === 200) {

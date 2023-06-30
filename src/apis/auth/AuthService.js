@@ -28,7 +28,7 @@ async function useLogin(loginUser) {
 async function tokenVaildation() {
     const token = localStorage.getItem('accessToken');
     if(token) {
-        const response = await noAuhApi.post('/api/user/tokenVaildation', token);
+        const response = await noAuhApi.post('/user/tokenVaildation', token);
         if (response.status === 200) {
             console.log("token validated")
         } else {
