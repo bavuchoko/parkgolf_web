@@ -26,17 +26,12 @@ async function useLogin(loginUser) {
 }
 
 async function tokenVaildation() {
-    console.log("c")
     const token = localStorage.getItem('accessToken');
     if(token) {
-        alert("토큰 존재")
-        console.log("d")
         const response = await noAuhApi.post('/user/tokenVaildation', token);
         if (response.status === 200) {
-            console.log("e")
             console.log("token validated")
         } else {
-            console.log("f")
             localStorage.removeItem('accessToken');
             localStorage.removeItem('loginUser');
             const error = new Error('토큰 검증 실패');

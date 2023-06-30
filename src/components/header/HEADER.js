@@ -14,12 +14,10 @@ function Header() {
     const dispatch = useDispatch();
     const { isLoading, error, data } = useQuery('menus', tokenVaildation,{
         onError: (error) => {
-            console.log("a")
             alert("세션이 종료되어 로그아웃되었습니다.")
             dispatch(logout());
         },
         onSuccess: (data) => {
-            console.log("b")
             if (!data) {
             }else{}
         },
