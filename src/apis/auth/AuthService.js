@@ -29,6 +29,7 @@ async function tokenVaildation() {
     console.log("c")
     const token = localStorage.getItem('accessToken');
     if(token) {
+        alert("토큰 존재")
         console.log("d")
         const response = await noAuhApi.post('/user/tokenVaildation', token);
         if (response.status === 200) {
