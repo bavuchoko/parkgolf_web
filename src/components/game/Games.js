@@ -61,52 +61,55 @@ function Games(props) {
     };
 
     return (
-        <div className="px-5">
-            <div className="periodDivFlex justify-center">
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => handleStartDateChange(date)}
-                    dateFormat="yyyy / MM / dd"
-                    locale={ko}
-                    withPortal
-                    portalId="root-portal"
-                    customInput={<ExampleCustomInput1 />}
-                />~
-                <DatePicker
-                    selected={endDate}
-                    onChange={(date) => handleEndDateChange(date)}
-                    dateFormat="yyyy / MM / dd"
-                    locale={ko}
-                    withPortal
-                    portalId="root-portal"
-                    customInput={<ExampleCustomInput2 />}
-                />
+        <>
+            <div className="px-5 dateSeletor">
+                <div className="periodDivFlex justify-center">
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date) => handleStartDateChange(date)}
+                        dateFormat="yyyy / MM / dd"
+                        locale={ko}
+                        withPortal
+                        portalId="root-portal"
+                        customInput={<ExampleCustomInput1 />}
+                    />~
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(date) => handleEndDateChange(date)}
+                        dateFormat="yyyy / MM / dd"
+                        locale={ko}
+                        withPortal
+                        portalId="root-portal"
+                        customInput={<ExampleCustomInput2 />}
+                    />
+                </div>
             </div>
+            <div className="px-[20px] pt-[250px]">
+                {isLoading ? (
+                    <>
+                    {/*<div className="modal-back "></div>*/}
+                    <img src={Loading} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
+                    </>
+                ) : error ? (
+                    <InternalServerError/>
+                ) : data.data._embedded  ? (
+                    <div className="gameListDiv">
+                        {data.data._embedded.gameList.map(game => (
+                            <Game key={game.id} game={game} getRandomColor={getRandomColor}/>
+                        ))}
+                    </div>
+                ) : (
 
-            {isLoading ? (
-                <>
-                {/*<div className="modal-back "></div>*/}
-                <img src={Loading} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
-                </>
-            ) : error ? (
-                <InternalServerError/>
-            ) : data.data._embedded  ? (
-                <div className="gameListDiv">
-                    {data.data._embedded.gameList.map(game => (
-                        <Game key={game.id} game={game} getRandomColor={getRandomColor}/>
-                    ))}
-                </div>
-            ) : (
+                    <div className="gameListDiv list-error">
+                        <img src={Empty} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
+                        <p>조회결과가 없습니다.</p>
+                    </div>
+                )
 
-                <div className="gameListDiv list-error">
-                    <img src={Empty} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
-                    <p>조회결과가 없습니다.</p>
-                </div>
-            )
+                }
 
-            }
-
-        </div>
+            </div>
+        </>
     );
 }
 

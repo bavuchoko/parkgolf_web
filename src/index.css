@@ -69,7 +69,16 @@ html body{
     font-size: 22px;
 }
 .nav-bar{
+    z-index: 999;
     border-bottom: 1px solid #c4c4c4;
+    position: fixed;
+    background: white;
+}
+.dateSeletor{
+    top: 60px;
+    position: fixed;
+    width: 100%;
+    background: white;
 }
 .container{
     padding: 30px;
