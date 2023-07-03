@@ -16,7 +16,7 @@ function MainMenu({closeMenu,open}) {
     }
     return (
         <div className={`slideMenu ${open ? 'show' : ''}`}>
-            <ul className="dropLi">
+            <ul className="dropLi rem_1">
                <Link to="/" onClick={closeMenu}><li>홈으로</li></Link>
                <Link to="/rank" onClick={closeMenu}><li>월간랭킹</li></Link>
                <Link to="/history" onClick={closeMenu}><li>경기기록</li></Link>

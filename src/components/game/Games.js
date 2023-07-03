@@ -19,7 +19,6 @@ function Games(props) {
     oneWeekAfter.setDate(oneWeekAfter.getDate() + 7);
     const [startDate, setStartDate] = useState(oneWeekAgo);
     const [endDate, setEndDate] = useState(oneWeekAfter);
-    const [message, setMessage] = useState("oneWeekAfter");
 
 
     const { isLoading, error, data } = useQuery(['game',startDate,endDate],
@@ -56,7 +55,7 @@ function Games(props) {
 
     return (
         <>
-            <div className={scrollHeight >= 60 ? 'px-5 dateSeletor shadow-bottom-div white' : 'px-5 dateSeletor gray'}>
+            <div className={scrollHeight >= 60 ? 'dateSeletor rem_1 shadow-bottom-div white' : 'dateSeletor gray'}>
                 <div className="periodDivFlex justify-center">
                     <DatePicker
                         selected={startDate}
@@ -79,7 +78,7 @@ function Games(props) {
                     />
                 </div>
             </div>
-            <div className="px-[20px] pt-[180px]">
+            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[180px] grayer' : 'px-[20px] pt-[180px] ' }>
                 {isLoading ? (
                     <>
                     {/*<div className="modal-back "></div>*/}

@@ -7,6 +7,15 @@ function useScrollHeight() {
         const handleScroll = () => {
             const currentScrollHeight = window.scrollY;
             setScrollHeight(currentScrollHeight);
+
+            if (currentScrollHeight > 60) {
+                console.log("se")
+                document.body.style.backgroundColor = '#e7e7e7';
+            } else {
+                console.log("dde")
+                document.body.style.backgroundColor = '#f6f6f6';
+            }
+
         };
 
         window.addEventListener('scroll', handleScroll);

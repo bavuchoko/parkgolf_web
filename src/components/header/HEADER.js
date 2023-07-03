@@ -28,34 +28,37 @@ function Header() {
     const [open, setOpen]=useState(false);
     const user = useSelector(state => state.user);
     const openHandler = () =>{
+        if(open) document.body.style.removeProperty('overflow');
+        else document.body.style.overflow = 'hidden';
         setOpen(!open)
     }
     const closeMenu = () =>{
         setOpen(false)
+        document.body.style.removeProperty('overflow');
     }
 
     return (
-        <div className="h-[55px]">
-                <div className={scrollHeight >= 60 ? 'w-full nav-bar white' : 'w-full nav-bar gray'}>
+        <div className="h-[50px]">
+                <div className={scrollHeight >= 60 && !open ? 'w-full nav-bar white' : 'w-full nav-bar gray'}>
                 <span className="in_nav_center inline-block weight-900 text-shadow" >SEJONG</span>
 
                 <div className="in_nav_center inline-block float-right" >
                     {open ?
                         <>
                             <button onClick={openHandler}>
-                                <img className="w-8 h-8 " alt="menu" src={close}/>
+                                <img className="w-7 h-7 " alt="menu" src={close}/>
                             </button>
                         </>
                         :
                         <button  onClick={openHandler}>
-                            <img className="w-8 h-8 " alt="menu" src={menu}/>
+                            <img className="w-7 h-7 " alt="menu" src={menu}/>
                         </button>
                     }
                 </div>
 
                 <MainMenu closeMenu={closeMenu} open={open}/>
                 {isLoggedIn &&
-                    <div className="in_nav_center float-right inline-block">{user.name} 님</div>
+                    <div className="in_nav_center rem_1-1 float-right inline-block">{user.name} 님</div>
                 }
             </div>
         </div>

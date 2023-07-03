@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import members from '../../assets/icons/members.png'
-// import RightArrow from "../../assets/icons/arrow-right.png"
 import RightArrow from "../../assets/icons/draw-right-arrow.png"
-// import LeftArrow from "../../assets/icons/arrow-left.png"
 import LeftArrow from "../../assets/icons/draw-left-arrow.png"
 import {Link} from "react-router-dom";
 
@@ -47,14 +44,14 @@ function Game({game}) {
         <div className="gameDiv " key={game.id}>
             <div className="gameDiv-upper">
                 <div>
-                    <p className="text-[17px] inline-block weight-900 mt-1.5 ml-1 game-title" style={pStyle}>
+                    <p className="rem_1-1 inline-block weight-900 game-title" style={pStyle}>
                         {game.title.length <= 26 ? game.title : `${game.title.slice(0, 23)}...`}
                     </p>
                 </div>
-                    <p className="mt-2 mb-2 text-[16px]">{game.address.slice(0,22)}</p>
+                    <p className="mt-2 mb-2 rem_1">{game.address.slice(0,22)}</p>
                 <div className="game-info flex">
                     <div className="player-count-txt">
-                        <p className="text-[14px]">참가자</p>
+                        <p className="rem_0-9">참가자</p>
                         <div>
                             <p className="player-count"> {game.playerCount}
                                 {/*<span className="text-[17px]">명</span>*/}
@@ -64,7 +61,7 @@ function Game({game}) {
                     <div className="slicer-vertical">
                     </div>
                     <div className="ml-[25px]">
-                        <p className="text-[14px]">간략 정보</p>
+                        <p className="rem_0-9">간략 정보</p>
                         <div>
                             <Day className="weight-900" day={game.dayKor}>{game.dayKor}</Day>
                             <p className="text-[16px] inline-block ml-3 mr-3">{game.playDate.slice(5,10) }</p>
@@ -78,11 +75,11 @@ function Game({game}) {
                     <div className="left">
                         <img src={LeftArrow} className="w-[20px] h-[20px] inline-block"/>
                         <Link to="/games/view">
-                         <button className="inline-block text-[13px] mr-2">상세보기</button>
+                         <button className="inline-block rem_0-8 mr-2">상세보기</button>
                         </Link>
                     </div>
                     <div className="right">
-                        <button className="inline-block text-[13px] ml-2" onClick={handleEnrollClick}>참가하기</button>
+                        <button className="inline-block rem_0-8 ml-2" onClick={handleEnrollClick}>참가하기</button>
                         <img src={RightArrow} className="w-[20px] h-[20px] inline-block"/>
                     </div>
                 </div>
