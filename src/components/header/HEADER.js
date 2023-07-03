@@ -6,9 +6,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {useQuery} from "react-query";
 import {tokenVaildation} from "../../apis/auth/AuthService";
 import {loginSuccess, logout} from "../../redusx/store/store";
+import useScrollHeight from "../../hooks/UseScrollHeight";
 
 function Header() {
-
+    const scrollHeight = useScrollHeight();
     // 토큰이 있는경우 토큰의 유효성을 검증하고 토큰이 유효하지 않으면 로그아웃 시키는 로직
     const { isLoggedIn } = useSelector(state => state);
     const dispatch = useDispatch();
@@ -34,8 +35,8 @@ function Header() {
     }
 
     return (
-        <>
-            <div className="w-full h-[60px] nav-bar">
+        <div className="h-[55px]">
+                <div className={scrollHeight >= 60 ? 'w-full nav-bar white' : 'w-full nav-bar gray'}>
                 <span className="in_nav_center inline-block weight-900 text-shadow" >SEJONG</span>
 
                 <div className="in_nav_center inline-block float-right" >
@@ -57,7 +58,7 @@ function Header() {
                     <div className="in_nav_center float-right inline-block">{user.name} 님</div>
                 }
             </div>
-        </>
+        </div>
     );
 }
 

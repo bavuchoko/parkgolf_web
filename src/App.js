@@ -9,6 +9,7 @@ import Games from "./components/game/Games";
 import {loginSuccess} from "./redusx/store/store";
 import Join from "./components/user/Join";
 import Create from "./components/game/Create";
+import GameView from "./components/game/GameView";
 
 function App() {
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
                     {/*<Route path="/games" element={<Games />} />*/}
                     <Route path="/games" element={<Games /> } />
                     <Route path="/games/create" element={<Create /> } />
+                    <Route path="/games/view" element={<GameView /> } />
                     <Route path="/history" element={<Create /> } />
                 </Route>
                 <Route path="/login" element={isLoggedIn ? <Navigate to='/' /> : <Login />} />

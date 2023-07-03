@@ -1,4 +1,4 @@
-import React, {forwardRef, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
 import Loading from "../../assets/gif/loading-red-dot.gif";
@@ -7,8 +7,12 @@ import Game from "./Game";
 import {useQuery} from "react-query";
 import {getGameList} from "../../apis/game/GameService";
 import InternalServerError from "../errors/Internal_Server_Error";
+import useScrollHeight from "../../hooks/UseScrollHeight";
 
 function Games(props) {
+
+    const scrollHeight = useScrollHeight();
+
     const oneWeekAgo = new Date();
     const oneWeekAfter = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
@@ -32,17 +36,7 @@ function Games(props) {
             {value}
         </button>
     ));
-    function getRandomColor() {
-        // const letters = '0123456789ABCDEF';
-        // let color = '#';
-        // for (let i = 0; i < 6; i++) {
-        //     color += letters[Math.floor(Math.random() * 16)];
-        // }
-        // return color;
-        const colors = ['#eada5c', '#58dbf3', '#ef6aac', '#6def68']; // 원하는 색상을 여기에 추가
-        const randomIndex = Math.floor(Math.random() * colors.length);
-        return colors[randomIndex];
-    }
+
 
     const handleStartDateChange = date => {
         if (endDate && date > endDate) {
@@ -62,7 +56,7 @@ function Games(props) {
 
     return (
         <>
-            <div className="px-5 dateSeletor">
+            <div className={scrollHeight >= 60 ? 'px-5 dateSeletor shadow-bottom-div white' : 'px-5 dateSeletor gray'}>
                 <div className="periodDivFlex justify-center">
                     <DatePicker
                         selected={startDate}
@@ -72,7 +66,8 @@ function Games(props) {
                         withPortal
                         portalId="root-portal"
                         customInput={<ExampleCustomInput1 />}
-                    />~
+                    />
+                    <span className="ml-2 mr-2">~</span>
                     <DatePicker
                         selected={endDate}
                         onChange={(date) => handleEndDateChange(date)}
@@ -84,7 +79,7 @@ function Games(props) {
                     />
                 </div>
             </div>
-            <div className="px-[20px] pt-[250px]">
+            <div className="px-[20px] pt-[180px]">
                 {isLoading ? (
                     <>
                     {/*<div className="modal-back "></div>*/}
@@ -95,7 +90,7 @@ function Games(props) {
                 ) : data.data._embedded  ? (
                     <div className="gameListDiv">
                         {data.data._embedded.gameList.map(game => (
-                            <Game key={game.id} game={game} getRandomColor={getRandomColor}/>
+                            <Game key={game.id} game={game}/>
                         ))}
                     </div>
                 ) : (
