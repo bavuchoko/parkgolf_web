@@ -1,13 +1,13 @@
 import React, {forwardRef, useEffect, useState} from 'react';
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
-import Loading from "../../assets/gif/loading-red-dot.gif";
+import Loading from "../../hooks/Loading";
 import Empty from "../../assets/icons/empty.png";
 import Game from "./Game";
 import {useQuery} from "react-query";
 import {getGameList} from "../../apis/game/GameService";
-import InternalServerError from "../errors/Internal_Server_Error";
 import useScrollHeight from "../../hooks/UseScrollHeight";
+import Error_500 from "../errors/Error_500";
 
 function Games(props) {
 
@@ -78,14 +78,13 @@ function Games(props) {
                     />
                 </div>
             </div>
-            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[180px] grayer' : 'px-[20px] pt-[180px] ' }>
+            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[130px] grayer' : 'px-[20px] pt-[130px] ' }>
                 {isLoading ? (
                     <>
-                    {/*<div className="modal-back "></div>*/}
-                    <img src={Loading} className="rounded-full block m0auto pt-4 w-1/2 h-1/2"  />
+                        <Loading />
                     </>
                 ) : error ? (
-                    <InternalServerError/>
+                    <Error_500/>
                 ) : data.data._embedded  ? (
                     <div className="gameListDiv">
                         {data.data._embedded.gameList.map(game => (

@@ -367,3 +367,19 @@ ul.dropLi > a >li{
 .rem_0-7{
     font-size: 0.7rem;
 }
+
+.slideMenu-left{
+    /*background: white;*/
+    background-color: #f6f6f6;
+    height: calc(100% - 50px);
+    width: 100%;
+    z-index: 990;
+    top: 50px;
+    position: fixed;
+    left: -100%;
+    transition: transform 0.2s ease-in-out;
+    background-color: #5e5e5e;
+}
+.show-left{
+    transform: translateX(100%);
+}

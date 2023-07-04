@@ -1,0 +1,44 @@
+.loading-container{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.error-container{
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 350px;
+    height: 300px;
+    /*background-color: #b6afb1;*/
+}
+
+.error-code {
+    font-size: 5rem;
+    font-weight: bolder;
+    color: transparent;
+    -webkit-background-clip: text;
+}
+.color-404{
+    background-image: linear-gradient(to right, #9f6aa1, #ff0000);
+}
+.color-500{
+    background-image: linear-gradient(to right, #c40a0a, #131313);
+}
+.error-msg-box{
+
+}
+.error-msg{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.error-msg-detail-eng{
+    font-family: "Franklin Gothic Demi";
+}
+.error-msg-detail-kor{
+    font-size: 1rem;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+
