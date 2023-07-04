@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from "date-fns/esm/locale";
 import styled from "styled-components";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Gneder = styled.div`
@@ -15,7 +16,6 @@ const Gneder = styled.div`
 function Ranks(props) {
 
     const [startDate, setStartDate] = useState(new Date());
-
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <button className="monthPicker" onClick={onClick} ref={ref}>
             {value}

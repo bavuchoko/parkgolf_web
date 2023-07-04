@@ -5,8 +5,8 @@ import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
 import {useNavigate} from "react-router-dom";
-import {loginSuccess} from "../../redusx/store/store";
 import {createGame} from "../../apis/game/GameService";
+import {useDispatch} from "react-redux";
 
 const InputBox = styled.input`
   border-radius: 0;

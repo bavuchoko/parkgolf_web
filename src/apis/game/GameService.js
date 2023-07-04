@@ -15,7 +15,6 @@ async function getGameList(startDate, endDate) {
         { params: { startDate: startDate, endDate: endDate } }
     );
     if (response.status === 200) {
-        console.log(response)
         return response;
     }else {
         const error = new Error('조회 실패');
@@ -23,4 +22,17 @@ async function getGameList(startDate, endDate) {
     }
 
 }
-export {createGame, getGameList};
+
+async function getGameInfo(gameId) {
+    console.log(gameId)
+    const response = await noAuhApi.get('/game/'+gameId);
+    if (response.status === 200) {
+        return response.data;
+    }else {
+        const error = new Error('조회 실패');
+        throw error;
+    }
+
+}
+
+export {createGame, getGameList, getGameInfo};

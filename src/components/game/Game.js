@@ -3,6 +3,7 @@ import styled from "styled-components";
 import RightArrow from "../../assets/icons/draw-right-arrow.png"
 import LeftArrow from "../../assets/icons/draw-left-arrow.png"
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Day = styled.p`
   font-size: 16px;
@@ -16,12 +17,6 @@ const Day = styled.p`
 `;
 
 function getRandomColor() {
-    // const letters = '0123456789ABCDEF';
-    // let color = '#';
-    // for (let i = 0; i < 6; i++) {
-    //     color += letters[Math.floor(Math.random() * 16)];
-    // }
-    // return color;
     const colors = ['#eada5c', '#58dbf3', '#ef6aac', '#6def68']; // 원하는 색상을 여기에 추가
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
@@ -32,8 +27,6 @@ function Game({game}) {
     const handleEnrollClick = () => {
 
     }
-
-
 
     const randomColor = getRandomColor();
     const pStyle = {
@@ -73,8 +66,13 @@ function Game({game}) {
             <div className="gameDiv-lower ">
                 <div className="gameDiv-lower-detail ">
                     <div className="left">
+                        <Link to= '/games/view'
+                            state= {{
+                                open : true,
+                                id : game.id
+                            }}
+                        >
                         <img src={LeftArrow} className="w-[20px] h-[20px] inline-block"/>
-                        <Link to="/games/view">
                          <button className="inline-block rem_0-8 mr-2">상세보기</button>
                         </Link>
                     </div>

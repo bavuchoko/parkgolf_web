@@ -9,11 +9,9 @@ function useScrollHeight() {
             setScrollHeight(currentScrollHeight);
 
             if (currentScrollHeight > 60) {
-                console.log("se")
                 document.body.style.backgroundColor = '#e7e7e7';
             } else {
-                console.log("dde")
-                document.body.style.backgroundColor = '#f6f6f6';
+                document.body.style.backgroundColor = '#ffffff';
             }
 
         };

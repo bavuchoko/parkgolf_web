@@ -55,7 +55,8 @@ function Games(props) {
 
     return (
         <>
-            <div className={scrollHeight >= 60 ? 'dateSeletor rem_1 shadow-bottom-div white' : 'dateSeletor gray'}>
+            {/*<div className={scrollHeight >= 60 ? 'dateSeletor rem_1 shadow-bottom-div white' : 'dateSeletor gray'}>*/}
+            <div className={scrollHeight >= 60 ? 'dateSeletor rem_1 shadow-bottom-div white' : 'dateSeletor white'}>
                 <div className="periodDivFlex justify-center">
                     <DatePicker
                         selected={startDate}

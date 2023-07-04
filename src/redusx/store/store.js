@@ -4,11 +4,13 @@ import { createStore } from 'redux';
 const initialState = {
     isLoggedIn: false,
     user: null,
+    viewOpen: false
 };
 
 // 액션 타입 정의
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGOUT = 'LOGOUT';
+const VIEW_OPEN = 'VIEW_OPEN';
 
 // 액션 생성 함수
 export function loginSuccess(user) {
@@ -18,7 +20,10 @@ export function loginSuccess(user) {
 export function logout() {
     return { type: LOGOUT };
 }
-
+export const setViewOpen = (viewOpen) => ({
+    type: VIEW_OPEN,
+    payload: viewOpen,
+});
 // 리듀서
 function reducer(state = initialState, action) {
     switch (action.type) {
@@ -27,6 +32,11 @@ function reducer(state = initialState, action) {
         case LOGOUT:
             localStorage.removeItem("accessToken");
             return { ...state, isLoggedIn: false, user: null };
+        case VIEW_OPEN:
+            return {
+                ...state,
+                viewOpen: action.payload,
+            };
         default:
             return state;
     }

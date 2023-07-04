@@ -8,6 +8,7 @@ import {tokenVaildation} from "../../apis/auth/AuthService";
 import {loginSuccess, logout} from "../../redusx/store/store";
 import useScrollHeight from "../../hooks/UseScrollHeight";
 
+
 function Header() {
     const scrollHeight = useScrollHeight();
     // 토큰이 있는경우 토큰의 유효성을 검증하고 토큰이 유효하지 않으면 로그아웃 시키는 로직
@@ -25,7 +26,7 @@ function Header() {
     });
     ///////////////////////////////////////////////////////////////////////////
 
-    const [open, setOpen]=useState(false);
+    const [open, setOpen]=useState(false)
     const user = useSelector(state => state.user);
     const openHandler = () =>{
         if(open) document.body.style.removeProperty('overflow');
@@ -39,7 +40,8 @@ function Header() {
 
     return (
         <div className="h-[50px]">
-                <div className={scrollHeight >= 60 && !open ? 'w-full nav-bar white' : 'w-full nav-bar gray'}>
+                <div className={scrollHeight >= 60 ? 'w-full nav-bar white' : 'w-full nav-bar white'}>
+
                 <span className="in_nav_center inline-block weight-900 text-shadow" >SEJONG</span>
 
                 <div className="in_nav_center inline-block float-right" >
