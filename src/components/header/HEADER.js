@@ -5,8 +5,9 @@ import MainMenu from "./MainMenu";
 import {useDispatch, useSelector} from "react-redux";
 import {useQuery} from "react-query";
 import {tokenVaildation} from "../../apis/auth/AuthService";
-import {loginSuccess, logout} from "../../redusx/store/store";
+import {loginSuccess, logout, setGray} from "../../redusx/store/store";
 import useScrollHeight from "../../hooks/UseScrollHeight";
+import {Link} from "react-router-dom";
 
 
 function Header() {
@@ -28,13 +29,16 @@ function Header() {
 
     const [open, setOpen]=useState(false)
     const user = useSelector(state => state.user);
+    const gray = useSelector((state) => state.gray);
     const openHandler = () =>{
         if(open) document.body.style.removeProperty('overflow');
         else document.body.style.overflow = 'hidden';
         setOpen(!open)
+        setGray(!gray)
     }
     const closeMenu = () =>{
         setOpen(false)
+        dispatch(setGray(false));
         document.body.style.removeProperty('overflow');
     }
 
@@ -42,7 +46,7 @@ function Header() {
         <div className="h-[50px]">
                 <div className={scrollHeight >= 60 ? 'w-full nav-bar white' : 'w-full nav-bar white'}>
 
-                <span className="in_nav_center inline-block weight-900 text-shadow" >SEJONG</span>
+                <Link to="/"> <span className="in_nav_center inline-block weight-900 text-shadow" >SEJONG</span></Link>
 
                 <div className="in_nav_center inline-block float-right" >
                     {open ?

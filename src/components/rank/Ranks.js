@@ -1,4 +1,4 @@
-import React, {forwardRef, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import trophy from "../../assets/icons/trophy.png";
 import silver from "../../assets/icons/silver-medal.png";
 import bronze from "../../assets/icons/bronze-medal.png";
@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ko } from "date-fns/esm/locale";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
+import {setGray} from "../../redusx/store/store";
 
 
 const Gneder = styled.div`
@@ -16,6 +17,7 @@ const Gneder = styled.div`
 function Ranks(props) {
 
     const [startDate, setStartDate] = useState(new Date());
+
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <button className="monthPicker" onClick={onClick} ref={ref}>
             {value}

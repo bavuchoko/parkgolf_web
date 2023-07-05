@@ -10,6 +10,7 @@ import {loginSuccess} from "./redusx/store/store";
 import Join from "./components/user/Join";
 import Create from "./components/game/Create";
 import GameView from "./components/game/GameView";
+import Field from "./components/game/Field";
 
 function App() {
     const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
                     {/*<Route path="/games" element={<Games />} />*/}
                     <Route path="/games" element={<Games /> } />
                     <Route path="/games/create" element={<Create /> } />
+                    <Route path="/games/field" element={<Field /> } />
                     <Route path="/games/view" element={<GameView /> } />
                     <Route path="/history" element={<Create /> } />
                 </Route>

@@ -19,7 +19,8 @@ function MainMenu({closeMenu,open}) {
             <ul className="dropLi rem_1">
                <Link to="/" onClick={closeMenu}><li>홈으로</li></Link>
                <Link to="/rank" onClick={closeMenu}><li>월간랭킹</li></Link>
-               <Link to="/history" onClick={closeMenu}><li>경기기록</li></Link>
+               {/*<Link to="/game/field" onClick={closeMenu}><li>경기장 관리</li></Link>*/}
+               {/*<Link to="/game/create" onClick={closeMenu}><li>경기등록</li></Link>*/}
                <Link to="/games" onClick={closeMenu}><li>일정보기</li></Link>
                 {isLoggedIn &&
                     <Link to="/user" onClick={closeMenu}><li>개인기록</li></Link>

@@ -8,6 +8,7 @@ import {useQuery} from "react-query";
 import {getGameList} from "../../apis/game/GameService";
 import useScrollHeight from "../../hooks/UseScrollHeight";
 import Error_500 from "../errors/Error_500";
+import {Link} from "react-router-dom";
 
 function Games(props) {
 
@@ -79,7 +80,11 @@ function Games(props) {
                     />
                 </div>
             </div>
-            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[130px] grayer' : 'px-[20px] pt-[130px] ' }>
+            <div className="tag_icon_box">
+                <Link to='/games/create'><span className="tag_icon">경기등록</span></Link>
+                <Link to='/games/field'><span className="tag_icon">필드</span></Link>
+            </div>
+            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[150px] grayer' : 'px-[20px] pt-[150px]' }>
                 {isLoading ? (
                     <>
                         <Loading />
@@ -87,7 +92,7 @@ function Games(props) {
                 ) : error ? (
                     <Error_500/>
                 ) : data.data._embedded  ? (
-                    <div className="gameListDiv">
+                    <div className={scrollHeight >= 60 ? 'gameListDiv grayer z-50 relative' : 'gameListDiv white z-50 relative' }>
                         {data.data._embedded.gameList.map(game => (
                             <Game key={game.id} game={game}/>
                         ))}
