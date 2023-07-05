@@ -13,7 +13,7 @@ const InputBox = styled.input`
   outline: none;
   display: block;
   margin: 0 auto;
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid black;
   text-indent: 15px;
   width: 90%;
   height: 30px;
@@ -27,7 +27,7 @@ const TextBox = styled.textarea`
   outline: none;
   display: block;
   margin: 0 auto;
-  border: 2px solid black;
+  border: 1px solid black;
   text-indent: 15px;
   width: 90%;
   min-height: 40vh;
@@ -110,7 +110,7 @@ function Create(props) {
                       onChange={handelDetailTextArea}
             />
 
-            <button className="text-[22px] ml-[5%] inline-block" onClick={goback}><FontAwesomeIcon icon={faArrowLeft}  /> 뒤로가기</button>
+            <button className="text-[18px] ml-[5%] inline-block" onClick={goback}><FontAwesomeIcon icon={faArrowLeft}  /> 돌아가기</button>
             <button className="saveBtn float-right" onClick={saveGame}>저장</button>
 
         </div>

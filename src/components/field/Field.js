@@ -76,11 +76,7 @@ function Field({field}) {
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     );
 }
-
 export default React.memo(Field);

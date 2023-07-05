@@ -13,11 +13,11 @@ const InputBox = styled.input`
   outline: none;
   display: block;
   margin: 0 auto;
-  border-bottom: 3px solid black;
-  text-indent: 15px;
+  border-bottom: 1px solid black;
+  text-indent: 5px;
   width: 90%;
-  height: 30px;
-  font-size: 21px;
+  height: 24px;
+  font-size: 1.2rem;
   letter-spacing:1px;
   margin-bottom: 30px;
 `;
@@ -28,13 +28,13 @@ const InputCount = styled.input`
   outline: none;
   display: block;
   margin-left: 20px;
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid black;
   width: 10%;
   text-align: center;
   height: 30px;
   font-size: 21px;
   letter-spacing:1px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 const TextBox = styled.textarea`
@@ -42,13 +42,13 @@ const TextBox = styled.textarea`
   outline: none;
   display: block;
   margin: 0 auto;
-  border: 2px solid black;
+  border: 1px solid black;
   text-indent: 15px;
   width: 90%;
   min-height: 40vh;
   font-size: 20px;
   letter-spacing:1px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 `;
 
 function Fields() {
@@ -76,6 +76,7 @@ function Fields() {
         zIndex:'999',
         left:'10%',
     }; // 스타일 정의 code
+
     const handle = {
         // 버튼 클릭 이벤트
         clickButton: () => {
@@ -164,7 +165,7 @@ function Fields() {
                      value={detail}
                      onChange={handelEtcTextArea}
             />
-            <button className="text-[22px] ml-[5%] inline-block" onClick={goback}><FontAwesomeIcon icon={faArrowLeft}  /> 뒤로가기</button>
+            <button className="text-[18px] ml-[5%] inline-block" onClick={goback}><FontAwesomeIcon icon={faArrowLeft}  /> 돌아가기</button>
             <button className="saveBtn float-right" onClick={saveField}>저장</button>
 
         </div>

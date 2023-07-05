@@ -55,7 +55,7 @@ const TextBox = styled.textarea`
 `;
 
 function Fields() {
-    const [city,setCity] =useState("세종")
+    const [city,setCity] =useState(null)
     
     const { isLoading, error, data } = useQuery(['fileds', city],
         () => getFieldList(city)

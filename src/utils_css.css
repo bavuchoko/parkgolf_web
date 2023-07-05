@@ -40,4 +40,6 @@
     font-size: 1rem;
     font-family: 'Nanum Myeongjo', serif;
 }
-
+.loading-container{
+    margin-top: calc(50% - 40px);
+}
