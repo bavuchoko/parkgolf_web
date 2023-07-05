@@ -1,5 +1,6 @@
 import {needAuthApi, noAuhApi} from "../instance/Instance";
 
+
 async function createGame(game) {
     const response = await needAuthApi.post('/game/create', game);
     if (response.status === 200) {

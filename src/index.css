@@ -73,12 +73,12 @@ html body{
     padding-right: 20px;
 }
 .nav-bar{
-    z-index: 999;
+    z-index: 997;
     border-bottom: 1px solid #ececec;
     position: fixed;
     background-color: #ffffff;
 }
-/*.game_component{*/
+/*.card_component{*/
 /*    position: fixed;*/
 /*}*/
 .dateSeletor{
@@ -86,7 +86,7 @@ html body{
     width: 100%;
     background: #ffffff;
     border-bottom: 1px  solid #f5f5f5;
-    z-index:998;
+    z-index:990;
     /*box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.1);*/
 
 }
@@ -98,7 +98,7 @@ html body{
     background-color: #ffffff;
     height: calc(100% - 50px);
     width: 100%;
-    z-index: 990;
+    z-index: 999;
     top: 50px;
     position: fixed;
     right: -100%;
@@ -177,6 +177,12 @@ ul.dropLi > a >li{
     margin-bottom: 30px;
 
 }
+.top-80{
+    top : 80px;
+}
+.top-160{
+    top : 160px;
+}
 .loginoutBtn{
     display: block;
     margin: 0 auto;
@@ -192,12 +198,12 @@ ul.dropLi > a >li{
     letter-spacing: 6px;
     color: white;
 }
-.gameListDiv{
+.cardListDiv{
     margin-bottom: 50px;
     padding-top: 10px;
     /*background-color: white;*/
 }
-.gameDiv{
+.cardDiv{
     border-radius: 10px;
     width: 100%;
     margin: 0 auto;
@@ -209,10 +215,10 @@ ul.dropLi > a >li{
     margin-bottom: 25px;
 
 }
-.gameDiv-upper{
+.cardDiv-upper{
     padding: 10px 25px 0px;
 }
-.gameDiv-lower{
+.cardDiv-lower{
     padding: 8px 25px 8px;
 }
 .weight-900{
@@ -237,14 +243,14 @@ ul.dropLi > a >li{
     border: 1px solid #262626;
     color: #262626;
 }
-.game-detail{
+.card-detail{
     border-radius: 6px;
     padding: 3px;
     font-size: 14px;
     border: 1px solid #262626;
     color: #262626;
 }
-.game-playing{
+.card-playing{
     border-radius: 30px;
     padding: 5px;
     font-size: 15px;
@@ -252,7 +258,7 @@ ul.dropLi > a >li{
     color: white;
 }
 
-.open-game{
+.open-card{
     display: inline-block;
     font-weight: 900;
     line-height: 24px;
@@ -295,7 +301,7 @@ ul.dropLi > a >li{
     font-size: 16px;
 }
 
-.game-info{
+.card-info{
     margin-top: 20px;
     height: 60px;
     margin-bottom: 15px;
@@ -323,15 +329,15 @@ ul.dropLi > a >li{
     border-bottom: 1px solid #b4b4b4;
     background: linear-gradient(to bottom, transparent 50%, currentColor 50%);
 }
-.gameDiv-lower{
+.cardDiv-lower{
 
 }
-.gameDiv-lower-detail{
+.cardDiv-lower-detail{
     height: 24px;
     width: 100%;
     position: relative;
 }
-.game-title{
+.card-title{
     white-space: nowrap;
     padding: 3px 0px;
     /*background: linear-gradient(to top, #FFE400 50%, transparent 50%);*/
@@ -387,7 +393,6 @@ ul.dropLi > a >li{
 }
 .tag_icon_box{
     position: fixed;
-    top:160px;
     left: 25px;
     z-index: 1;
 }

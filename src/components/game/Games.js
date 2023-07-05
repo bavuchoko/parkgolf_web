@@ -10,7 +10,7 @@ import useScrollHeight from "../../hooks/UseScrollHeight";
 import Error_500 from "../errors/Error_500";
 import {Link} from "react-router-dom";
 
-function Games(props) {
+function Games() {
 
     const scrollHeight = useScrollHeight();
 
@@ -80,9 +80,9 @@ function Games(props) {
                     />
                 </div>
             </div>
-            <div className="tag_icon_box">
+            <div className="tag_icon_box top-160">
                 <Link to='/games/create'><span className="tag_icon">경기등록</span></Link>
-                <Link to='/games/field'><span className="tag_icon">필드</span></Link>
+                <Link to='/fields'><span className="tag_icon">필드</span></Link>
             </div>
             <div className={scrollHeight >= 60 ? 'px-[20px] pt-[150px] grayer' : 'px-[20px] pt-[150px]' }>
                 {isLoading ? (

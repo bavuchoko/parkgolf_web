@@ -22,7 +22,7 @@ function getRandomColor() {
     return colors[randomIndex];
 }
 
-function Game({game}) {
+function Field({field}) {
 
     const handleEnrollClick = () => {
 
@@ -34,31 +34,29 @@ function Game({game}) {
     };
     return (
 
-        <div className="cardDiv " key={game.id}>
+        <div className="cardDiv " key={field.id}>
             <div className="cardDiv-upper">
                 <div>
-                    <p className="rem_1-1 inline-block weight-900 card-title" style={pStyle}>
-                        {game.title.length <= 26 ? game.title : `${game.title.slice(0, 23)}...`}
+                    <p className="rem_1-1 inline-block weight-900 card-title">
+                        {field.name}
                     </p>
                 </div>
-                    <p className="mt-2 mb-2 rem_1">{game.address.slice(0,22)}</p>
+                    <p className="mt-2 mb-2 rem_1">{field.address}</p>
                 <div className="card-info flex">
                     <div className="player-count-txt">
-                        <p className="rem_0-9">참가자</p>
+                        <p className="rem_0-9">홀</p>
                         <div>
-                            <p className="player-count"> {game.playerCount}
-                                {/*<span className="text-[17px]">명</span>*/}
-                            </p>
+                            <p className="player-count"> {field.holes}</p>
                         </div>
                     </div>
                     <div className="slicer-vertical">
                     </div>
                     <div className="ml-[25px]">
-                        <p className="rem_0-9">간략 정보</p>
-                        <div>
-                            <Day className="weight-900" day={game.dayKor}>{game.dayKor}</Day>
-                            <p className="text-[16px] inline-block ml-3 mr-3">{game.playDate.slice(5,10) }</p>
-                        </div>
+                        {/*<p className="rem_0-9">간략 정보</p>*/}
+                        {/*<div>*/}
+                        {/*    <Day className="weight-900" day={field.dayKor}>{field.dayKor}</Day>*/}
+                        {/*    <p className="text-[16px] inline-block ml-3 mr-3">{field.playDate.slice(5,10) }</p>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
@@ -66,19 +64,15 @@ function Game({game}) {
             <div className="cardDiv-lower ">
                 <div className="cardDiv-lower-detail ">
                     <div className="left">
-                        <Link to= '/games/view'
+                        <Link to= '/fields/view'
                             state= {{
                                 open : true,
-                                id : game.id
+                                id : field.id
                             }}
                         >
                         <img src={LeftArrow} className="w-[20px] h-[20px] inline-block"/>
                          <button className="inline-block rem_0-8 mr-2">상세보기</button>
                         </Link>
-                    </div>
-                    <div className="right">
-                        <button className="inline-block rem_0-8 ml-2" onClick={handleEnrollClick}>참가하기</button>
-                        <img src={RightArrow} className="w-[20px] h-[20px] inline-block"/>
                     </div>
                 </div>
             </div>
@@ -89,4 +83,4 @@ function Game({game}) {
     );
 }
 
-export default React.memo(Game);
+export default React.memo(Field);

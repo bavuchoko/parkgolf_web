@@ -8,9 +8,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import Games from "./components/game/Games";
 import {loginSuccess} from "./redusx/store/store";
 import Join from "./components/user/Join";
+import CreateGame from "./components/game/Create";
 import Create from "./components/game/Create";
 import GameView from "./components/game/GameView";
-import Field from "./components/game/Field";
+import Fields from "./components/field/Fields";
+import CreateField from "./components/field/Create";
 
 function App() {
     const dispatch = useDispatch();
@@ -45,8 +47,9 @@ function App() {
                     <Route path="/rank" element={<Ranks />} />
                     {/*<Route path="/games" element={<Games />} />*/}
                     <Route path="/games" element={<Games /> } />
-                    <Route path="/games/create" element={<Create /> } />
-                    <Route path="/games/field" element={<Field /> } />
+                    <Route path="/games/create" element={<CreateGame /> } />
+                    <Route path="/fields" element={<Fields /> } />
+                    <Route path="/fields/create" element={<CreateField /> } />
                     <Route path="/games/view" element={<GameView /> } />
                     <Route path="/history" element={<Create /> } />
                 </Route>
