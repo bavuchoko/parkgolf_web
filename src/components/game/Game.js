@@ -41,7 +41,7 @@ function Game({game}) {
                         {game.title.length <= 26 ? game.title : `${game.title.slice(0, 23)}...`}
                     </p>
                 </div>
-                    <p className="mt-2 mb-2 rem_1">{game.address.slice(0,22)}</p>
+                    <p className="mt-2 mb-2 rem_1">{game.fields.address.slice(0,22)}</p>
                 <div className="card-info flex">
                     <div className="player-count-txt">
                         <p className="rem_0-9">참가자</p>

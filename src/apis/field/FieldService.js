@@ -15,6 +15,7 @@ async function getFieldList(city) {
         { params: { city: city} }
     );
     if (response.status === 200) {
+        console.log(response)
         return response;
     }else {
         const error = new Error('조회 실패');

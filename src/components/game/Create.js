@@ -6,7 +6,10 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
 import {useNavigate} from "react-router-dom";
 import {createGame} from "../../apis/game/GameService";
-import {useDispatch} from "react-redux";
+import SelectSearch from 'react-select-search';
+import SelectBox from "../../hooks/SelectBox";
+import {useQuery} from "react-query";
+import {getFieldList} from "../../apis/field/FieldService";
 
 const InputBox = styled.input`
   border-radius: 0;
@@ -41,6 +44,9 @@ function Create(props) {
     const [address, setAddress] = useState("");
     const [detail, setDetail] = useState("");
     const navigate = useNavigate();
+    const [city,setCity] =useState(null)
+    const [selected, setSelected] = useState("");
+
     const handleStartDateChange = date => {
         if (date <= now) {
             alert("과거일의 경기를 생성할 수 없습니다.");
@@ -48,11 +54,15 @@ function Create(props) {
         }
         setStartDate(date);
     };
+
     const ExampleCustomInput1 = forwardRef(({ value, onClick }, ref) => (
         <button className="monthPicker" onClick={onClick} ref={ref}>
             {value}
         </button>
     ));
+    const { isLoading, error, data } = useQuery(['fileds', city],
+        () => getFieldList(city)
+    );
 
     const handelAddressInput =(e)=> {
         setAddress(e.target.value);
@@ -85,6 +95,8 @@ function Create(props) {
         }
     }
 
+
+
     return (
         <div className="px-5">
 
@@ -100,7 +112,9 @@ function Create(props) {
                 />
             </div>
 
-            <InputBox type="text" placeholder="경기장 주소"
+            <SelectBox data={data} selected={selected} setSelected={setSelected}/>
+
+            <InputBox type="text" placeholder="경기 명"
                       value={address}
                       onChange={handelAddressInput}
             />

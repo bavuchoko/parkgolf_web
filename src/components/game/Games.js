@@ -84,7 +84,7 @@ function Games() {
                 <Link to='/games/create'><span className="tag_icon">경기등록</span></Link>
                 <Link to='/fields'><span className="tag_icon">필드</span></Link>
             </div>
-            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[150px] grayer' : 'px-[20px] pt-[150px]' }>
+            <div className={scrollHeight >= 60 ? 'px-[20px] pt-[160px] grayer' : 'px-[20px] pt-[160px]' }>
                 {isLoading ? (
                     <>
                         <Loading />

@@ -77,7 +77,7 @@ function Fields() {
                 <Error_500/>
             ) : data.data._embedded  ? (
                 <div>
-                    {data.data._embedded.fieldList.map(field => (
+                    {data.data._embedded.fieldsList.map(field => (
                         <Field key={field.id} field={field}/>
                     ))}
                 </div>
